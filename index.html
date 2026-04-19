@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skopix.ai — AI Brand Visibility для фармацевтичних компаній</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #0f172a;
+  --dark2: #1a2744;
+  --dark3: #1e3a5f;
+  --orange: #e85d20;
+  --orange-light: #ff7a40;
+  --gray-dark: #334155;
+  --gray-mid: #64748b;
+  --gray-light: #94a3b8;
+  --white: #ffffff;
+  --off-white: #f8fafc;
+  --border: #e2e8f0;
+  --border-dark: #1e293b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 5%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15,23,42,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 40px;
+}
+.nav-sko { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gray-dark); letter-spacing: 1px; }
+.nav-pix { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--orange); letter-spacing: 1px; }
+.nav-ai  { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--white); margin-left: 2px; vertical-align: super; }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--gray-light); text-decoration: none; font-size: 14px; font-weight: 300; transition: color .2s; }
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 9px 22px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--orange-light); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,93,32,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: 10%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(30,58,95,0.6) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,93,32,0.12);
+  border: 1px solid rgba(232,93,32,0.25);
+  padding: 6px 14px;
+  border-radius: 99px;
+  margin-bottom: 2rem;
+}
+.hero-eyebrow span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--orange);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.hero-eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+
+.hero-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+.hero-h1 .sko { color: var(--gray-dark); }
+.hero-h1 .pix { color: var(--orange); }
+.hero-h1 .ai-sup { font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 500; color: var(--white); vertical-align: super; }
+
+.hero-sub {
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--gray-light);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.hero-tags {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.hero-tag {
+  font-size: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--border-dark);
+  color: var(--gray-light);
+  border-radius: 99px;
+  font-weight: 300;
+}
+
+.hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 14px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gray-light);
+  border: 1px solid var(--border-dark);
+  padding: 13px 28px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .2s;
+}
+.btn-ghost:hover { border-color: var(--gray-light); color: var(--white); }
+
+/* Hero right — chat mockup */
+.hero-visual {
+  background: var(--dark2);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.chat-header {
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chat-dot { width: 10px; height: 10px; border-radius: 50%; }
+.chat-platform {
+  font-size: 12px;
+  color: var(--gray-light);
+  margin-left: auto;
+  font-weight: 300;
+}
+
+.chat-body { padding: 20px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+.chat-user {
+  background: var(--dark3);
+  border-radius: 12px 12px 4px 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--gray-light);
+  font-style: italic;
+  align-self: flex-start;
+  max-width: 85%;
+  font-weight: 300;
+}
+
+.chat-ai {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px 12px 12px 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  align-self: flex-end;
+  max-width: 92%;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.chat-ai strong { color: var(--orange); font-weight: 500; }
+
+.chat-metrics {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+.chat-metric {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.chat-metric-n { font-size: 20px; font-weight: 500; color: var(--orange); font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px; }
+.chat-metric-l { font-size: 10px; color: var(--gray-light); font-weight: 300; margin-top: 2px; }
+
+/* ── TAGLINE STRIP ── */
+.strip {
+  background: var(--orange);
+  padding: 14px 5%;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  overflow: hidden;
+}
+.strip-item {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  white-space: nowrap;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.strip-sep { color: rgba(255,255,255,0.4); }
+
+/* ── SECTION BASE ── */
+section { padding: 100px 5%; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.section-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+}
+
+.section-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--gray-mid);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ── PROBLEM ── */
+.problem { background: var(--off-white); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 4rem;
+}
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--orange);
+}
+.stat-card-n {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 1px;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.stat-card-l {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: .25rem;
+}
+.stat-card-s {
+  font-size: 12px;
+  color: var(--gray-mid);
+  font-weight: 300;
+}
+
+.problem-text { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.problem-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.problem-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(232,93,32,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.problem-icon svg { width: 16px; height: 16px; }
+
+.problem-item-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+.problem-item-body { font-size: 14px; color: var(--gray-mid); font-weight: 300; line-height: 1.6; }
+
+/* ── HOW IT WORKS ── */
+.how { background: var(--white); }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 60px; right: 60px;
+  height: 1px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.step { position: relative; z-index: 1; }
+
+.step-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--dark);
+  color: var(--white);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.step:nth-child(2) .step-num { background: var(--dark2); }
+.step:nth-child(3) .step-num { background: var(--orange); }
+.step:nth-child(4) .step-num { background: var(--dark); }
+
+.step-title { font-size: 16px; font-weight: 500; margin-bottom: .5rem; }
+.step-body { font-size: 13px; color: var(--gray-mid); font-weight: 300; line-height: 1.6; }
+
+/* ── WHAT WE MONITOR ── */
+.monitor { background: var(--dark); padding: 100px 5%; }
+.monitor .section-h2 { color: var(--white); }
+.monitor .section-sub { color: var(--gray-light); }
+
+.monitor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 4rem;
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.monitor-card {
+  background: var(--dark2);
+  padding: 2rem;
+  transition: background .2s;
+}
+.monitor-card:hover { background: var(--dark3); }
+
+.monitor-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: rgba(232,93,32,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.monitor-card-title { font-size: 16px; font-weight: 500; color: var(--white); margin-bottom: .5rem; }
+.monitor-card-body { font-size: 13px; color: var(--gray-light); font-weight: 300; line-height: 1.6; }
+
+.ai-platforms {
+  display: flex;
+  gap: .75rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.ai-platform {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-dark);
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 13px;
+  color: var(--gray-light);
+  font-weight: 300;
+}
+.ai-platforms-label {
+  font-size: 12px;
+  color: var(--gray-mid);
+  font-weight: 300;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-right: .5rem;
+}
+
+/* ── PACKAGES ── */
+.packages { background: var(--off-white); }
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.package {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  transition: transform .2s, box-shadow .2s;
+}
+.package:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+
+.package.featured {
+  border: 2px solid var(--orange);
+  background: var(--dark);
+}
+
+.package-badge {
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--orange);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 16px;
+  border-radius: 99px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.package-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray-mid);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.package.featured .package-name { color: var(--orange); }
+
+.package-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--dark);
+  margin-bottom: .25rem;
+}
+.package.featured .package-price { color: var(--white); }
+
+.package-period { font-size: 13px; color: var(--gray-mid); font-weight: 300; margin-bottom: 1.5rem; }
+.package.featured .package-period { color: var(--gray-light); }
+
+.package-divider { height: 1px; background: var(--border); margin-bottom: 1.5rem; }
+.package.featured .package-divider { background: var(--border-dark); }
+
+.package-items { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
+
+.package-item {
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--gray-mid);
+  font-weight: 300;
+}
+.package.featured .package-item { color: var(--gray-light); }
+
+.check {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: rgba(232,93,32,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.check::after {
+  content: '';
+  width: 6px; height: 4px;
+  border-left: 1.5px solid var(--orange);
+  border-bottom: 1.5px solid var(--orange);
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.btn-pkg {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--dark);
+  transition: all .2s;
+}
+.btn-pkg:hover { border-color: var(--dark); }
+.package.featured .btn-pkg {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}
+.package.featured .btn-pkg:hover { background: var(--orange-light); }
+
+/* ── WHY PHARMA ── */
+.why { background: var(--white); }
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.why-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.why-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.why-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  color: var(--orange);
+  letter-spacing: 1px;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+}
+
+.why-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+.why-body { font-size: 13px; color: var(--gray-mid); font-weight: 300; line-height: 1.6; }
+
+.why-visual {
+  background: var(--dark);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.why-visual-title {
+  font-size: 12px;
+  color: var(--gray-light);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.sov-bar { margin-bottom: 1rem; }
+.sov-bar-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.sov-brand { font-size: 13px; color: var(--white); font-weight: 500; }
+.sov-val { font-size: 13px; color: var(--orange); font-weight: 500; }
+.sov-track { height: 6px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; }
+.sov-fill { height: 100%; border-radius: 99px; background: var(--orange); transition: width 1s ease; }
+.sov-fill.gray { background: var(--gray-dark); }
+.sov-fill.low { background: rgba(255,255,255,0.15); }
+
+.sentiment-row {
+  display: flex;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+.sent {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+.sent-positive { background: rgba(100,220,120,0.1); }
+.sent-neutral { background: rgba(255,255,255,0.05); }
+.sent-negative { background: rgba(232,93,32,0.1); }
+.sent-n { font-size: 20px; font-weight: 500; font-family: 'Bebas Neue'; letter-spacing: 1px; }
+.sent-positive .sent-n { color: #4ade80; }
+.sent-neutral .sent-n { color: var(--gray-light); }
+.sent-negative .sent-n { color: var(--orange); }
+.sent-l { font-size: 10px; color: var(--gray-light); font-weight: 300; margin-top: 2px; }
+
+/* ── CTA ── */
+.cta-section { background: var(--dark); padding: 120px 5%; }
+.cta-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+
+.cta-h { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 5vw, 72px); color: var(--white); line-height: 1; letter-spacing: 1px; margin-bottom: 1.5rem; }
+.cta-h em { color: var(--orange); font-style: normal; }
+
+.cta-sub { font-size: 17px; color: var(--gray-light); font-weight: 300; margin-bottom: 3rem; line-height: 1.7; }
+
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.cta-note { margin-top: 1.5rem; font-size: 13px; color: var(--gray-mid); font-weight: 300; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid var(--border-dark);
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo { display: flex; align-items: baseline; }
+.footer-sko { font-family: 'Bebas Neue'; font-size: 20px; color: var(--gray-dark); }
+.footer-pix { font-family: 'Bebas Neue'; font-size: 20px; color: var(--orange); }
+.footer-ai  { font-size: 11px; font-weight: 500; color: var(--white); vertical-align: super; }
+
+.footer-copy { font-size: 12px; color: var(--gray-mid); font-weight: 300; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 12px; color: var(--gray-mid); text-decoration: none; font-weight: 300; }
+.footer-links a:hover { color: var(--gray-light); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { animation: fadeUp .6s ease both; }
+.hero-h1      { animation: fadeUp .6s .1s ease both; }
+.hero-sub     { animation: fadeUp .6s .2s ease both; }
+.hero-tags    { animation: fadeUp .6s .3s ease both; }
+.hero-actions { animation: fadeUp .6s .4s ease both; }
+.hero-visual  { animation: fadeUp .6s .3s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps::before { display: none; }
+  .monitor-grid { grid-template-columns: 1fr; }
+  .packages-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg height="36" viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;">
+      <g transform="matrix(1,0,0,1,18,108)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:78px;font-weight:900;fill:rgb(51,65,85);">S<tspan x="49.685px 99.371px" y="0px 0px">KO</tspan></text>
+      </g>
+      <g transform="matrix(1,0,0,1,176,108)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:78px;font-weight:900;fill:rgb(232,93,32);">P<tspan x="49.685px 69.016px" y="0px 0px">IX</tspan></text>
+      </g>
+      <g transform="matrix(1,0,0,1,298,55)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:700;fill:white;">.<tspan x="7.639px 23.072px" y="0px 0px">ai</tspan></text>
+      </g>
+      <path d="M18,118L390,118" style="fill:none;stroke:rgb(30,41,59);stroke-width:1px;"/>
+      <g transform="matrix(1,0,0,1,18,140)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;fill:rgb(71,85,105);">UNSEEN</text>
+      </g>
+      <g transform="matrix(1,0,0,1,188,140)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;fill:rgb(232,93,32);">SEEN</text>
+      </g>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem">Проблема</a></li>
+    <li><a href="#how">Як це працює</a></li>
+    <li><a href="#packages">Пакети</a></li>
+    <li><a href="#why">Чому ми</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Безкоштовний аудит</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Перший в Україні AI Brand Visibility сервіс для фарми</span>
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <svg width="100%" viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;max-width:480px;display:block;">
+          <g transform="matrix(1,0,0,1,18,108)">
+            <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:78px;font-weight:900;fill:rgb(51,65,85);">S<tspan x="49.685px 99.371px" y="0px 0px">KO</tspan></text>
+          </g>
+          <g transform="matrix(1,0,0,1,176,108)">
+            <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:78px;font-weight:900;fill:rgb(232,93,32);">P<tspan x="49.685px 69.016px" y="0px 0px">IX</tspan></text>
+          </g>
+          <g transform="matrix(1,0,0,1,298,55)">
+            <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:700;fill:white;">.<tspan x="7.639px 23.072px" y="0px 0px">ai</tspan></text>
+          </g>
+          <path d="M18,118L390,118" style="fill:none;stroke:rgb(30,41,59);stroke-width:1px;"/>
+          <g transform="matrix(1,0,0,1,18,140)">
+            <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;fill:rgb(71,85,105);">UNSEEN</text>
+          </g>
+          <g transform="matrix(1,0,0,1,188,140)">
+            <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;fill:rgb(232,93,32);">SEEN</text>
+          </g>
+        </svg>
+      </div>
+      <p class="hero-sub">Щодня мільйони людей звертаються до ChatGPT з запитами про здоров'я. Ми відстежуємо що він каже про ваш бренд — і надаємо вам конкретні рекомендації для покращення позицій.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">ChatGPT</span>
+        <span class="hero-tag">Gemini</span>
+        <span class="hero-tag">Perplexity</span>
+        <span class="hero-tag">Claude</span>
+        <span class="hero-tag">Copilot</span>
+      </div>
+      <div class="hero-actions">
+        <a href="mailto:loyac.pharma@gmail.com?subject=Замовлення безкоштовного AI-аудиту бренду&body=Доброго дня!%0A%0AЯ хочу замовити безкоштовний AI Brand Audit.%0A%0AНазва бренду:%0AКомпанія:%0AІм'я:%0AТелефон:%0A%0AДякую!" class="btn-primary">Замовити безкоштовний аудит →</a>
+        <a href="#how" class="btn-ghost">Як це працює</a>
+      </div>
+
+      <!-- Profound Partner badge -->
+      <div style="margin-top:2rem;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid #1e293b;border-radius:8px;background:rgba(255,255,255,0.03);max-width:420px;">
+        <div style="flex-shrink:0;margin-top:1px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:500;color:#e85d20;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;">Profound Partner</div>
+          <div style="font-size:11px;color:#475569;line-height:1.6;font-weight:300;">Skopix.ai є верифікованим партнером Profound — провідної AEO-платформи ($1B оцінка) з HIPAA compliance і SOC 2 Type II сертифікацією. Дані захищені.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" id="heroVisual">
+
+      <!-- ChatGPT Header -->
+      <div class="chat-header">
+        <!-- GPT Logo SVG -->
+        <svg width="22" height="22" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.650-2.980 10.079 10.079 0 0 0-9.612 6.979 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.650 2.980 10.079 10.079 0 0 0 9.618-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.820zm-17.525 24.642a7.477 7.477 0 0 1-4.806-1.743c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.482 7.123zM4.947 33.558a7.477 7.477 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.648a7.504 7.504 0 0 1-10.24-2.743zM3.161 13.925A7.469 7.469 0 0 1 7.17 10.440c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L5.012 23.930a7.504 7.504 0 0 1-1.85-10.005zm27.688 6.440-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l9.048 5.230a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.712zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756c-.061.033-.168.091-.237.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.005 11.225zm1.829-3.943 4.33-2.501 4.332 2.500v4.999l-4.331 2.5-4.331-2.5V18.308z" fill="white"/>
+        </svg>
+        <span class="chat-platform" style="margin-left:8px;font-size:13px;color:#8e8ea0;">ChatGPT</span>
+        <span style="margin-left:auto;font-size:10px;color:#444654;background:rgba(255,255,255,0.05);padding:3px 8px;border-radius:4px;letter-spacing:.05em;">SKOPIX MONITOR</span>
+      </div>
+
+      <!-- Animated chat area -->
+      <div class="chat-body" id="chatBody" style="min-height:280px;position:relative;">
+        <!-- Messages inserted by JS -->
+      </div>
+
+      <!-- Audit results — shown after animation -->
+      <div id="auditResults" style="opacity:0;transition:opacity .5s;padding:0 16px 16px;">
+        <div style="font-size:10px;color:#6b7280;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:10px;padding-top:4px;border-top:1px solid #1e293b;">
+          Результат аудиту Skopix.ai
+        </div>
+
+        <!-- Nurofen -->
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:10px;padding:12px 14px;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:28px;background:#e85d20;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;">N</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:white;">Nurofen</div>
+                <div style="font-size:10px;color:#6b7280;">OTC · Знеболення</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:20px;font-weight:700;color:#e85d20;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;">71%</div>
+              <div style="font-size:10px;color:#6b7280;">Share of Voice</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#4ade80;">83%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Позитив</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#facc15;">2</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Помилки</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#60a5fa;">↑4%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">vs тиждень</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panadol -->
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:10px;padding:12px 14px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:28px;background:#0369a1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;">P</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:white;">Panadol</div>
+                <div style="font-size:10px;color:#6b7280;">OTC · Температура</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:20px;font-weight:700;color:#e85d20;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;">58%</div>
+              <div style="font-size:10px;color:#6b7280;">Share of Voice</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#4ade80;">76%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Позитив</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#f87171;">5</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Помилки</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#f87171;">↓2%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">vs тиждень</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit block 2: Пектолван + Проспан -->
+      <div id="auditResults2" style="opacity:0;transition:opacity .5s;padding:0 16px 16px;">
+        <div style="font-size:10px;color:#6b7280;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:10px;padding-top:4px;border-top:1px solid #1e293b;">
+          Результат аудиту Skopix.ai
+        </div>
+
+        <!-- Пектолван -->
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:10px;padding:12px 14px;margin-bottom:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:28px;background:#059669;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;">П</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:white;">Пектолван Ivy</div>
+                <div style="font-size:10px;color:#6b7280;">OTC · Кашель · Плющ</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:20px;font-weight:700;color:#e85d20;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;">44%</div>
+              <div style="font-size:10px;color:#6b7280;">Share of Voice</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#4ade80;">79%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Позитив</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#facc15;">3</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Помилки</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#60a5fa;">↑6%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">vs тиждень</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Проспан -->
+        <div style="background:#111827;border:1px solid #1e293b;border-radius:10px;padding:12px 14px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:28px;height:28px;background:#7c3aed;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;">Пр</div>
+              <div>
+                <div style="font-size:13px;font-weight:500;color:white;">Проспан</div>
+                <div style="font-size:10px;color:#6b7280;">OTC · Кашель · Плющ</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:20px;font-weight:700;color:#e85d20;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;">38%</div>
+              <div style="font-size:10px;color:#6b7280;">Share of Voice</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#4ade80;">72%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Позитив</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#facc15;">4</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">Помилки</div>
+            </div>
+            <div style="background:#1a2744;border-radius:6px;padding:6px 8px;text-align:center;">
+              <div style="font-size:14px;font-weight:500;color:#f87171;">↓1%</div>
+              <div style="font-size:9px;color:#6b7280;margin-top:1px;">vs тиждень</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<script>
+(function(){
+  const allConversations = [
+    {
+      brand: 'nurofen-panadol',
+      q: "що краще від зубного болю нурофен чи парацетамол?",
+      a: "Для зняття зубного болю <b style='color:#e85d20'>Nurofen (ібупрофен)</b> зазвичай ефективніший — має виражену протизапальну дію. Рекомендована доза 400 мг кожні 6 годин. <b style='color:#60a5fa'>Panadol (парацетамол)</b> можна поєднувати при сильному болі.",
+    },
+    {
+      brand: 'nurofen-panadol',
+      q: "дитині 4 роки температура 38.8 що дати?",
+      a: "Для дітей від 3 місяців рекомендований <b style='color:#e85d20'>Nurofen для дітей</b> суспензія — 5–10 мг/кг кожні 6–8 год. Якщо через 1 год ефект недостатній, можна дати <b style='color:#60a5fa'>Panadol дитячий</b> (парацетамол 15 мг/кг).",
+    },
+    {
+      brand: 'pektolvan-prospан',
+      q: "що краще від кашлю у дитини пектолван чи проспан?",
+      a: "При вологому кашлі у дітей <b style='color:#10b981'>Пектолван Ivy</b> (екстракт плюща) допомагає розріджувати мокротиння. <b style='color:#a78bfa'>Проспан</b> (також на основі плюща) має схожий механізм дії. Обидва є рослинними препаратами — вибір залежить від форми випуску та віку дитини.",
+    },
+  ];
+
+  const auditSets = {
+    'nurofen-panadol': document.getElementById('auditResults'),
+    'pektolvan-prospан': document.getElementById('auditResults2'),
+  };
+
+  const body = document.getElementById('chatBody');
+
+  function typeText(el, html, cb) {
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    const text = temp.textContent;
+    let i = 0;
+    el.innerHTML = '';
+    const interval = setInterval(() => {
+      if(i < text.length) {
+        el.textContent += text[i++];
+        body.scrollTop = body.scrollHeight;
+      } else {
+        el.innerHTML = html;
+        clearInterval(interval);
+        if(cb) cb();
+      }
+    }, 30);
+  }
+
+  function addMsg(role, content, cb) {
+    const msg = document.createElement('div');
+    msg.className = role === 'user' ? 'chat-user' : 'chat-ai';
+    msg.style.opacity = '0';
+    msg.style.transform = 'translateY(8px)';
+    msg.style.transition = 'opacity .4s, transform .4s';
+    body.appendChild(msg);
+    body.scrollTop = body.scrollHeight;
+    setTimeout(() => {
+      msg.style.opacity = '1';
+      msg.style.transform = 'translateY(0)';
+      if(role === 'user') {
+        msg.textContent = content;
+        setTimeout(cb, 700);
+      } else {
+        msg.innerHTML = '<span class="typing-dots"><span>.</span><span>.</span><span>.</span></span>';
+        setTimeout(() => {
+          typeText(msg, content, cb);
+        }, 1200);
+      }
+    }, 80);
+  }
+
+  function runConversation(conv, onDone) {
+    addMsg('user', conv.q, () => {
+      addMsg('ai', conv.a, () => {
+        setTimeout(onDone, 900);
+      });
+    });
+  }
+
+  function hideAllAudits() {
+    Object.values(auditSets).forEach(el => { if(el) el.style.opacity = '0'; });
+  }
+
+  let cycleIdx = 0;
+
+  function runCycle() {
+    hideAllAudits();
+    body.innerHTML = '';
+
+    if(cycleIdx === 0) {
+      // Cycle 1: Nurofen + Panadol (2 conversations)
+      runConversation(allConversations[0], () => {
+        setTimeout(() => {
+          body.innerHTML = '';
+          runConversation(allConversations[1], () => {
+            const audit = auditSets['nurofen-panadol'];
+            if(audit) audit.style.opacity = '1';
+            setTimeout(() => {
+              audit.style.opacity = '0';
+              setTimeout(() => { cycleIdx = 1; runCycle(); }, 600);
+            }, 9000);
+          });
+        }, 2000);
+      });
+    } else {
+      // Cycle 2: Пектолван + Проспан (1 conversation)
+      runConversation(allConversations[2], () => {
+        const audit = auditSets['pektolvan-prospан'];
+        if(audit) audit.style.opacity = '1';
+        setTimeout(() => {
+          audit.style.opacity = '0';
+          setTimeout(() => { cycleIdx = 0; runCycle(); }, 600);
+        }, 9000);
+      });
+    }
+  }
+
+  setTimeout(runCycle, 1000);
+})();
+</script>
+
+<style>
+.typing-dots { display:inline-flex; gap:3px; align-items:center; padding:2px 0; }
+.typing-dots span {
+  width:6px; height:6px; border-radius:50%;
+  background:#6b7280;
+  animation: dotBounce 1.2s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay:.2s; }
+.typing-dots span:nth-child(3) { animation-delay:.4s; }
+@keyframes dotBounce {
+  0%,80%,100% { transform:scale(0.7); opacity:.4; }
+  40% { transform:scale(1); opacity:1; }
+}
+</style>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <span class="strip-item">Моніторинг</span>
+  <span class="strip-sep">·</span>
+  <span class="strip-item">Share of Voice</span>
+  <span class="strip-sep">·</span>
+  <span class="strip-item">Сентимент</span>
+  <span class="strip-sep">·</span>
+  <span class="strip-item">Compliance</span>
+  <span class="strip-sep">·</span>
+  <span class="strip-item">GEO-оптимізація</span>
+  <span class="strip-sep">·</span>
+  <span class="strip-item">Звітність</span>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="section-inner">
+    <span class="section-label">Проблема</span>
+    <h2 class="section-h2">AI рекомендує препарати.<br>Ваші чи конкурентів?</h2>
+    <p class="section-sub">Щодня мільйони людей звертаються до ChatGPT з запитами про здоров'я. AI вже рекомендує препарати — і робить це без вашої участі. Які саме бренди він називає? І чи увійде ваш до цього переліку?</p>
+
+    <div class="problem-grid">
+      <div class="stat-cards">
+        <div class="stat-card">
+          <div class="stat-card-n">290K</div>
+          <div class="stat-card-l">Запитів на тиждень</div>
+          <div class="stat-card-s">запитів про здоров'я і препарати в UA</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-n">80%</div>
+          <div class="stat-card-l">Згадок невидимі</div>
+          <div class="stat-card-s">GA4 не фіксує AI-трафік</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-n">3%</div>
+          <div class="stat-card-l">Конверсія з AI</div>
+          <div class="stat-card-s">Найвища серед усіх ніш</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-n">14%</div>
+          <div class="stat-card-l">Помилок в AI-порадах</div>
+          <div class="stat-card-s">Про дозування і взаємодії</div>
+        </div>
+      </div>
+
+      <div class="problem-text">
+        <div class="problem-item">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <div class="problem-item-title">Ви не знаєте що AI говорить</div>
+            <div class="problem-item-body">ChatGPT відповідає на запити про ваші препарати тисячі разів на день. Ці розмови відбуваються без вашої участі — і без вашого контролю.</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          </div>
+          <div>
+            <div class="problem-item-title">Помилки впливають на пацієнтів</div>
+            <div class="problem-item-body">AI може давати неточне дозування, пропускати протипоказання або рекомендувати не той препарат. У фармі це не маркетингова проблема — це patient safety.</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="problem-item-title">Конкуренти вже моніторять</div>
+            <div class="problem-item-body">Знати де ваш бренд знаходиться в AI-рекомендаціях — це вже не перевага, це необхідність. Share of voice в AI — новий маркетинговий KPI.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;">
+      <p style="font-size:11px;color:#94a3b8;line-height:1.9;font-weight:300;">
+        <strong style="color:#cbd5e1;font-weight:500;">Джерела · </strong>
+        290K запитів/тиждень — оцінка Skopix.ai на основі Statcounter UA + OpenAI WAU (900M глобально, лютий 2026) · 
+        80% невидимих AI-згадок — McKinsey AI Discovery Survey 2025 · 
+        3% конверсія з AI у фармі — Promodo AI Traffic Report, Україна 2025 · 
+        14% помилок у AI-консультаціях — meta-аналіз medRxiv 2025
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIVE COUNTER -->
+<section style="background:#0f172a;padding:80px 5%;overflow:hidden;">
+  <div class="section-inner">
+
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(232,93,32,0.12);border:1px solid rgba(232,93,32,0.25);padding:6px 16px;border-radius:99px;margin-bottom:1.25rem;">
+        <div style="width:7px;height:7px;border-radius:50%;background:#e85d20;animation:pulse 1.5s infinite;"></div>
+        <span style="font-size:12px;font-weight:500;color:#e85d20;letter-spacing:.06em;text-transform:uppercase;">Live · Прямо зараз в Україні</span>
+      </div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);color:white;letter-spacing:1px;line-height:1;margin-bottom:.75rem;">Це шукають у ChatGPT<br>прямо зараз</h2>
+      <p style="font-size:16px;color:#64748b;font-weight:300;">Реальні запити про здоров'я і препарати від українських користувачів</p>
+    </div>
+
+    <!-- Big counter -->
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="font-size:13px;color:#475569;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem;">Запитів про здоров'я сьогодні в Україні</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,120px);color:#e85d20;line-height:1;letter-spacing:2px;" id="liveCounter">0</div>
+      <div style="font-size:13px;color:#475569;margin-top:.5rem;font-weight:300;">і це число росте кожну секунду</div>
+    </div>
+
+    <!-- Query stream -->
+    <div style="position:relative;overflow:hidden;border:1px solid #1e293b;border-radius:16px;background:#0a1628;">
+
+      <div style="padding:12px 20px;border-bottom:1px solid #1e293b;display:flex;align-items:center;gap:8px;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#e85d20;animation:pulse 1.5s infinite;"></div>
+        <span style="font-size:12px;color:#475569;font-weight:500;letter-spacing:.04em;">ChatGPT · Україна · Health queries</span>
+        <span style="margin-left:auto;font-size:11px;color:#1e3a5f;background:#0f2340;padding:2px 10px;border-radius:4px;">LIVE FEED</span>
+      </div>
+
+      <div id="queryStream" style="padding:1rem 1.25rem;display:flex;flex-direction:column;gap:.6rem;min-height:280px;max-height:280px;overflow:hidden;position:relative;">
+      </div>
+
+      <!-- Fade bottom -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top, #0a1628, transparent);pointer-events:none;border-radius:0 0 16px 16px;"></div>
+    </div>
+
+      <p style="font-size:11px;color:#334155;text-align:center;margin-top:.75rem;font-weight:300;">* Приклади типових запитів на основі аналізу Skopix.ai · Лічильник розраховано на основі відкритих даних OpenAI та Statcounter UA</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;">
+      <div style="background:#111827;border:1px solid #1e293b;border-radius:12px;padding:1.25rem;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#e85d20;letter-spacing:1px;">~28</div>
+        <div style="font-size:12px;color:#475569;font-weight:300;margin-top:2px;">запитів про здоров'я щохвилини</div>
+      </div>
+      <div style="background:#111827;border:1px solid #1e293b;border-radius:12px;padding:1.25rem;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#e85d20;letter-spacing:1px;">41K</div>
+        <div style="font-size:12px;color:#475569;font-weight:300;margin-top:2px;">фарм-запитів щодня в Україні</div>
+      </div>
+      <div style="background:#111827;border:1px solid #1e293b;border-radius:12px;padding:1.25rem;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#e85d20;letter-spacing:1px;">92.6%</div>
+        <div style="font-size:12px;color:#475569;font-weight:300;margin-top:2px;">з них — через ChatGPT</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  // Counter — starts from today's estimated count based on time of day
+  const perSecond = 41000 / 86400;
+  const now = new Date();
+  const secondsToday = now.getHours()*3600 + now.getMinutes()*60 + now.getSeconds();
+  let count = Math.floor(secondsToday * perSecond);
+  const el = document.getElementById('liveCounter');
+  if(el) {
+    el.textContent = count.toLocaleString('uk-UA');
+    function tick() {
+      const rand = Math.random();
+      if(rand > 0.3) count += 1;
+      if(rand > 0.85) count += 1;
+      el.textContent = count.toLocaleString('uk-UA');
+      setTimeout(tick, 800 + Math.random() * 400);
+    }
+    setTimeout(tick, 1000);
+  }
+
+  // Query stream
+  const queries = [
+    "що дати дитині від температури 38.5",
+    "нурофен при вагітності перший триместр",
+    "кашель у немовляти 6 місяців",
+    "чи можна аспірин при грудному вигодовуванні",
+    "ібупрофен або парацетамол що краще",
+    "пектолван дозування для дитини 3 роки",
+    "антибіотики при ангіні у дорослих",
+    "знеболювальне від зубного болю без рецепта",
+    "проспан vs геделікс що краще",
+    "чи можна нурофен при гастриті",
+    "температура у дитини 2 роки що дати",
+    "від чого допомагає еспумізан",
+    "алергія на антибіотики симптоми",
+    "парацетамол максимальна доза на добу",
+    "засіб від нежиті при вагітності",
+    "коли давати антибіотики при бронхіті",
+    "аугментин або амоксицилін різниця",
+    "чи можна лоперамід дітям",
+    "від болю в горлі що краще",
+    "вітамін д для немовляти дозування",
+  ];
+
+  const platforms = ['ChatGPT', 'ChatGPT', 'ChatGPT', 'Perplexity', 'ChatGPT'];
+  const locations = ['Київ', 'Харків', 'Львів', 'Одеса', 'Дніпро', 'Запоріжжя', 'Вінниця', 'Полтава', 'Черкаси', 'Житомир'];
+
+  const stream = document.getElementById('queryStream');
+  if(!stream) return;
+
+  let usedIdx = [];
+  function getRandom(arr) {
+    let idx;
+    do { idx = Math.floor(Math.random() * arr.length); } while(usedIdx.includes(idx) && usedIdx.length < arr.length);
+    usedIdx.push(idx);
+    if(usedIdx.length > 5) usedIdx.shift();
+    return arr[idx];
+  }
+
+  function addQuery() {
+    const q = getRandom(queries);
+    const loc = locations[Math.floor(Math.random() * locations.length)];
+    const plat = platforms[Math.floor(Math.random() * platforms.length)];
+    const ago = Math.floor(Math.random() * 55) + 5;
+
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;align-items:center;gap:.75rem;padding:.5rem .75rem;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.04);opacity:0;transform:translateY(-8px);transition:all .4s ease;flex-shrink:0;';
+    row.innerHTML = `
+      <div style="width:6px;height:6px;border-radius:50%;background:#e85d20;flex-shrink:0;"></div>
+      <div style="font-size:13px;color:#e2e8f0;font-weight:300;flex:1;">${q}</div>
+      <div style="font-size:10px;color:#334155;white-space:nowrap;">${loc}</div>
+      <div style="font-size:10px;color:#1e3a5f;background:#0f2340;padding:2px 8px;border-radius:4px;white-space:nowrap;">${plat}</div>
+      <div style="font-size:10px;color:#334155;white-space:nowrap;">${ago}с тому</div>
+    `;
+
+    stream.insertBefore(row, stream.firstChild);
+    setTimeout(() => { row.style.opacity='1'; row.style.transform='translateY(0)'; }, 50);
+
+    // Remove old rows
+    const rows = stream.querySelectorAll('div');
+    if(rows.length > 7) {
+      const last = rows[rows.length-1];
+      last.style.opacity = '0';
+      setTimeout(() => last.remove(), 400);
+    }
+  }
+
+  // Initial fill
+  for(let i=0; i<5; i++) setTimeout(() => addQuery(), i*300);
+
+  // Add new query every 2.5 seconds
+  setInterval(addQuery, 2500);
+})();
+</script>
+
+<!-- STATISTICS -->
+<section style="background:#f8fafc;padding:100px 5%;" id="stats">
+  <div class="section-inner">
+    <span class="section-label">Масштаб ринку</span>
+    <h2 class="section-h2">Україна. AI. Фарма.<br>Цифри, які змінюють все.</h2>
+    <p class="section-sub">Пацієнти вже запитують ChatGPT про препарати. Ринок росте щороку. Питання лише одне — чи знає ваш бренд що про нього кажуть.</p>
+
+    <!-- Top big stats -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;">
+
+      <div style="background:var(--dark);border-radius:16px;padding:2rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(232,93,32,0.08);border-radius:50%;"></div>
+        <div style="font-size:11px;color:#64748b;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.75rem;">ChatGPT в Україні · 2026</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;color:#e85d20;line-height:1;letter-spacing:1px;">4.5M</div>
+        <div style="font-size:15px;font-weight:500;color:white;margin-top:.5rem;margin-bottom:.5rem;">активних користувачів щотижня</div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;">ChatGPT — 92.6% ринку AI в Україні. 5% світового населення використовує ChatGPT щотижня (OpenAI, 2026)</div>
+      </div>
+
+      <div style="background:var(--dark);border-radius:16px;padding:2rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(96,165,250,0.08);border-radius:50%;"></div>
+        <div style="font-size:11px;color:#64748b;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.75rem;">Фарм-запити · Україна · тиждень</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;color:#60a5fa;line-height:1;letter-spacing:1px;">290K</div>
+        <div style="font-size:15px;font-weight:500;color:white;margin-top:.5rem;margin-bottom:.5rem;">запитів про препарати щотижня</div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;">Знеболення, температура, кашель, вагітність. 1 з 4 користувачів ChatGPT ставить health-запит щотижня (OpenAI)</div>
+      </div>
+
+      <div style="background:var(--dark);border-radius:16px;padding:2rem;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:rgba(74,222,128,0.08);border-radius:50%;"></div>
+        <div style="font-size:11px;color:#64748b;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.75rem;">Конверсія з AI · Фарма</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;color:#4ade80;line-height:1;letter-spacing:1px;">3%</div>
+        <div style="font-size:15px;font-weight:500;color:white;margin-top:.5rem;margin-bottom:.5rem;">рекомендацій ChatGPT конвертуються в покупку в аптеці</div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;">3% і більше рекомендацій ChatGPT щодо препаратів завершуються реальною покупкою — найвища конверсія серед усіх ніш. AI-трафік в Україні виріс ×9 за 9 місяців 2025 (Promodo)</div>
+      </div>
+    </div>
+
+    <!-- Forecast chart -->
+    <div style="background:white;border:1px solid #e2e8f0;border-radius:16px;padding:2rem;margin-top:1.5rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <div style="font-size:13px;color:#64748b;letter-spacing:.06em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem;">Прогноз · Фарм-запити в AI · Україна</div>
+          <div style="font-size:22px;font-weight:500;color:#0f172a;">290K → 1.8M запитів на тиждень до 2031</div>
+        </div>
+        <div style="display:flex;gap:1.5rem;align-items:center;">
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#64748b;">
+            <div style="width:12px;height:12px;background:#e85d20;border-radius:2px;"></div>Фарм-запити
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#64748b;">
+            <div style="width:12px;height:12px;background:#60a5fa;border-radius:2px;opacity:.6;"></div>Користувачі ChatGPT UA
+          </div>
+        </div>
+      </div>
+
+      <canvas id="forecastChart" height="220"></canvas>
+
+      <div style="display:flex;justify-content:space-between;margin-top:1rem;flex-wrap:wrap;gap:.75rem;align-items:center;">
+        <div style="font-size:11px;color:#94a3b8;">Прогноз на основі: CAGR 32% AI у фармі (BCC Research 2025) · зростання ChatGPT UA 60% YoY · Rock Health 2025</div>
+        <div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:6px 14px;font-size:12px;color:#92400e;font-weight:500;">×6.2 зростання за 5 років</div>
+      </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(function(){
+  const ctx = document.getElementById('forecastChart');
+  if(!ctx) return;
+  const labels = ['2026','2027','2028','2029','2030','2031'];
+  const pharma  = [290, 480, 720, 1100, 1500, 1800];
+  const users   = [4500, 6200, 8500, 11000, 14000, 17000];
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Фарм-запити (тис/тижд)',
+          data: pharma,
+          backgroundColor: '#e85d20',
+          borderRadius: 6,
+          borderSkipped: false,
+          yAxisID: 'y',
+          order: 1,
+        },
+        {
+          label: 'Користувачі ChatGPT UA (тис)',
+          data: users,
+          type: 'line',
+          borderColor: '#60a5fa',
+          backgroundColor: 'rgba(96,165,250,0.08)',
+          borderWidth: 2.5,
+          pointBackgroundColor: '#60a5fa',
+          pointRadius: 4,
+          fill: true,
+          tension: 0.4,
+          yAxisID: 'y2',
+          order: 0,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              const v = ctx.parsed.y;
+              if(ctx.datasetIndex === 0) return ' Фарм-запити: ' + (v >= 1000 ? (v/1000).toFixed(1)+'M' : v+'K') + '/тижд';
+              return ' ChatGPT UA: ' + (v/1000).toFixed(1) + 'M користувачів';
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { size: 13, weight: '500' }, color: '#64748b' }
+        },
+        y: {
+          position: 'left',
+          grid: { color: '#f1f5f9' },
+          ticks: {
+            color: '#e85d20',
+            font: { size: 11 },
+            callback: v => v >= 1000 ? (v/1000).toFixed(1)+'M' : v+'K'
+          },
+          title: { display: true, text: 'Фарм-запити/тиждень', color: '#e85d20', font: { size: 11 } }
+        },
+        y2: {
+          position: 'right',
+          grid: { display: false },
+          ticks: {
+            color: '#60a5fa',
+            font: { size: 11 },
+            callback: v => (v/1000).toFixed(0)+'M UA'
+          },
+          title: { display: true, text: 'Користувачі ChatGPT', color: '#60a5fa', font: { size: 11 } }
+        }
+      }
+    }
+  });
+})();
+</script>
+
+    <!-- Bottom 4 mini stats -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.5rem;">
+      <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;border-left:3px solid #e85d20;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#e85d20;letter-spacing:1px;line-height:1;">32%</div>
+        <div style="font-size:13px;font-weight:500;color:#0f172a;margin:.25rem 0;">дорослих використовують AI для здоров'я</div>
+        <div style="font-size:11px;color:#94a3b8;">Rock Health Survey 2025</div>
+      </div>
+      <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;border-left:3px solid #60a5fa;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#60a5fa;letter-spacing:1px;line-height:1;">14%</div>
+        <div style="font-size:13px;font-weight:500;color:#0f172a;margin:.25rem 0;">помилок в AI-консультаціях по препаратах</div>
+        <div style="font-size:11px;color:#94a3b8;">medRxiv meta-аналіз 2025</div>
+      </div>
+      <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;border-left:3px solid #4ade80;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#4ade80;letter-spacing:1px;line-height:1;">×9</div>
+        <div style="font-size:13px;font-weight:500;color:#0f172a;margin:.25rem 0;">зріс AI-трафік в Україні за 9 місяців</div>
+        <div style="font-size:11px;color:#94a3b8;">Promodo 2025</div>
+      </div>
+      <div style="background:white;border:1px solid #e2e8f0;border-radius:12px;padding:1.25rem;border-left:3px solid #a78bfa;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#a78bfa;letter-spacing:1px;line-height:1;">80%</div>
+        <div style="font-size:13px;font-weight:500;color:#0f172a;margin:.25rem 0;">AI-згадок брендів невидимі для аналітики</div>
+        <div style="font-size:11px;color:#94a3b8;">GA4 не фіксує AI-трафік</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-inner">
+    <span class="section-label">Процес</span>
+    <h2 class="section-h2">Як це працює</h2>
+    <p class="section-sub">Чотири кроки від невидимості до контролю над тим що AI говорить про ваш бренд.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Промпт-бібліотека</div>
+        <div class="step-body">Ми володіємо найбільшою промпт-бібліотекою в Україні — 5000+ запитів специфічних для OTC, Rx, педіатрії, терапії, кардіології, гінекології, урології, неврології, отоларингології, вагітності та взаємодій препаратів.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Щотижневий моніторинг</div>
+        <div class="step-body">Skopix.ai автоматично запускає промпти в ChatGPT, Gemini, Perplexity, Claude і Copilot — щотижня, без перерв. Система фіксує кожну відповідь: чи згаданий ваш бренд, на якій позиції, з яким контекстом і тоном. Жодна згадка не пропускається.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Аналіз і алерти</div>
+        <div class="step-body">Ви отримуєте повну картину: Share of Voice по кожній AI-платформі, сентимент відповідей, виявлені помилки і неточності, динаміку змін vs попередній тиждень. Щопонеділка — структурований звіт з топ-інсайтами, алертами і пріоритетами прямо на пошту. Нічого зайвого — тільки те що важливо для рішень.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Рекомендації</div>
+        <div class="step-body">На основі даних моніторингу ми визначаємо які майданчики AI цитує у вашій категорії, якого контенту не вистачає і де саме є прогалини. Ви отримуєте конкретні рекомендації — який формат, яка структура, які ключові факти потрібні щоб AI цитував ваш бренд правильно, частіше і в потрібному контексті.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE MONITOR -->
+<section class="monitor" id="monitor">
+  <div class="section-inner">
+    <span class="section-label">Моніторинг</span>
+    <h2 class="section-h2" style="color:var(--white)">Що ми відстежуємо</h2>
+    <p class="section-sub" style="color:var(--gray-light)">Шість критичних метрик для фармацевтичного бренду в AI-просторі.</p>
+
+    <div class="monitor-grid">
+      <div class="monitor-card">
+        <div class="monitor-card-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <div class="monitor-card-title">Share of Voice</div>
+        <div class="monitor-card-body">Яка частка AI-відповідей у вашій категорії згадує ваш бренд. Щотижнева динаміка vs конкуренти.</div>
+      </div>
+      <div class="monitor-card">
+        <div class="monitor-card-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="monitor-card-title">Сентимент</div>
+        <div class="monitor-card-body">Позитивний, нейтральний або негативний тон AI-відповідей. Алерт при погіршенні.</div>
+      </div>
+      <div class="monitor-card">
+        <div class="monitor-card-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        </div>
+        <div class="monitor-card-title">Помилки і ризики</div>
+        <div class="monitor-card-body">Виявлення неточного дозування, пропущених протипоказань, неправильних взаємодій у AI-відповідях.</div>
+      </div>
+      <div class="monitor-card">
+        <div class="monitor-card-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="monitor-card-title">Конкурентний аналіз</div>
+        <div class="monitor-card-body">Порівняння вашого SOV з конкурентами по кожній категорії запитів і кожній AI-платформі.</div>
+      </div>
+      <div class="monitor-card">
+        <div class="monitor-card-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="monitor-card-title">Джерела цитування</div>
+        <div class="monitor-card-body">Які сайти AI цитує коли говорить про ваш бренд. Де ваш контент і де його не вистачає.</div>
+      </div>
+      <div class="monitor-card">
+        <div class="monitor-card-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <div class="monitor-card-title">Дашборд і звіти</div>
+        <div class="monitor-card-body">Щотижневий PDF-звіт і live-дашборд. Усі дані в одному місці — для вас і для вашого менеджменту.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:3rem;margin-top:3rem;flex-wrap:wrap;">
+      <span class="ai-platforms-label">Платформи</span>
+
+      <!-- Orbit animation -->
+      <div style="position:relative;width:200px;height:200px;flex-shrink:0;">
+
+        <!-- Center dot -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#e85d20;box-shadow:0 0 12px rgba(232,93,32,0.5);"></div>
+
+        <!-- Orbit ring -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);"></div>
+
+        <!-- ChatGPT -->
+        <div class="orbit-icon" style="animation:orbit 12s linear infinite;animation-delay:0s;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1a2744;border:1px solid #1e3a5f;display:flex;align-items:center;justify-content:center;" title="ChatGPT">
+            <svg width="18" height="18" viewBox="0 0 41 41" fill="none"><path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-6.650-2.980 10.079 10.079 0 0 0-9.612 6.979 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 6.650 2.980 10.079 10.079 0 0 0 9.618-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.820zm-17.525 24.642a7.477 7.477 0 0 1-4.806-1.743l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.482 7.123h.237zM4.947 33.558a7.477 7.477 0 0 1-.894-5.023l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.648a7.504 7.504 0 0 1-10.003-2.602zM3.161 13.925A7.469 7.469 0 0 1 7.17 10.44v9.475a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L5.012 23.93a7.504 7.504 0 0 1-1.851-10.005zm27.688 6.44-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l9.048 5.23a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.712zm3.35-5.043-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.622h-.237zm-21.063 6.929-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.242 11.359zm1.829-3.943 4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.308z" fill="white"/></svg>
+          </div>
+        </div>
+
+        <!-- Gemini -->
+        <div class="orbit-icon" style="animation:orbit 12s linear infinite;animation-delay:-2.4s;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1a2744;border:1px solid #1e3a5f;display:flex;align-items:center;justify-content:center;" title="Gemini">
+            <svg width="18" height="18" viewBox="0 0 28 28" fill="none"><path d="M14 28C14 26.0633 13.6267 24.2433 12.88 22.54C12.1567 20.8367 11.165 19.355 9.905 18.095C8.645 16.835 7.16333 15.8433 5.46 15.12C3.75667 14.3733 1.93667 14 0 14C1.93667 14 3.75667 13.6383 5.46 12.915C7.16333 12.1683 8.645 11.165 9.905 9.905C11.165 8.645 12.1567 7.16333 12.88 5.46C13.6267 3.75667 14 1.93667 14 0C14 1.93667 14.3617 3.75667 15.085 5.46C15.8317 7.16333 16.835 8.645 18.095 9.905C19.355 11.165 20.8367 12.1683 22.54 12.915C24.2433 13.6383 26.0633 14 28 14C26.0633 14 24.2433 14.3733 22.54 15.12C20.8367 15.8433 19.355 16.835 18.095 18.095C16.835 19.355 15.8317 20.8367 15.085 22.54C14.3617 24.2433 14 26.0633 14 28Z" fill="#e85d20"/></svg>
+          </div>
+        </div>
+
+        <!-- Perplexity -->
+        <div class="orbit-icon" style="animation:orbit 12s linear infinite;animation-delay:-4.8s;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1a2744;border:1px solid #1e3a5f;display:flex;align-items:center;justify-content:center;" title="Perplexity">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+        </div>
+
+        <!-- Claude -->
+        <div class="orbit-icon" style="animation:orbit 12s linear infinite;animation-delay:-7.2s;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1a2744;border:1px solid #1e3a5f;display:flex;align-items:center;justify-content:center;" title="Claude">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <!-- Copilot -->
+        <div class="orbit-icon" style="animation:orbit 12s linear infinite;animation-delay:-9.6s;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1a2744;border:1px solid #1e3a5f;display:flex;align-items:center;justify-content:center;" title="Copilot">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Platform labels -->
+      <div style="display:flex;flex-direction:column;gap:.5rem;">
+        <div style="font-size:13px;color:#64748b;font-weight:300;">5 AI-платформ під постійним моніторингом:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+          <span class="ai-platform">ChatGPT</span>
+          <span class="ai-platform">Gemini</span>
+          <span class="ai-platform">Perplexity</span>
+          <span class="ai-platform">Claude</span>
+          <span class="ai-platform">Copilot</span>
+        </div>
+      </div>
+
+    </div>
+
+<style>
+.orbit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+</style>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="section-inner">
+    <span class="section-label">Пакети</span>
+    <h2 class="section-h2">Оберіть свій формат</h2>
+    <p class="section-sub">Старт з безкоштовного аудиту.</p>
+
+    <!-- FREE AUDIT — окремий рядок -->
+    <div style="border:2px solid #e85d20;border-radius:16px;padding:1.25rem 1.75rem;margin-bottom:1.5rem;position:relative;">
+      <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);">
+        <span style="background:#0f172a;color:#e85d20;border:1px solid #e85d20;font-size:11px;font-weight:500;padding:4px 16px;border-radius:99px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;">Безкоштовно · AI Brand Audit</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.25rem;">
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem 1rem;flex:1;">
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>1 бренд · ChatGPT</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>15 фарм-промптів</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>Share of Voice</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>3 конкуренти</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>Помилки і ризики</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>3 рекомендації</span>
+          <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>PDF за 48 годин</span>
+        </div>
+        <button style="background:#e85d20;border:none;color:white;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;padding:10px 22px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Замовити аудит →</button>
+      </div>
+    </div>
+
+    <div class="packages-grid" style="grid-template-columns:repeat(3,1fr);">
+
+      <!-- FREE AUDIT placeholder removed, now above -->
+
+
+      <!-- MONITOR -->
+      <div class="package">
+        <div class="package-name">Monitor</div>
+        <div style="font-size:16px;font-weight:500;color:#0f172a;margin-bottom:.25rem;">Щотижневий моніторинг</div>
+        <div class="package-period">ціна за запитом</div>
+        <div class="package-divider"></div>
+        <div class="package-items">
+          <div class="package-item"><div class="check"></div>1 бренд · 3 AI-платформи</div>
+          <div class="package-item"><div class="check"></div>50 фарм-промптів на тиждень</div>
+          <div class="package-item"><div class="check"></div>3 конкуренти</div>
+          <div class="package-item"><div class="check"></div>Щотижневий PDF-звіт</div>
+          <div class="package-item"><div class="check"></div>Share of Voice + сентимент</div>
+          <div class="package-item"><div class="check"></div>Алерти при змінах</div>
+        </div>
+        <button class="btn-pkg" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Дізнатись ціну →</button>
+      </div>
+
+      <!-- INSIGHTS -->
+      <div class="package featured">
+        <div class="package-badge">Найпопулярніший</div>
+        <div class="package-name">Insights</div>
+        <div style="font-size:16px;font-weight:500;color:white;margin-bottom:.25rem;">Глибока аналітика</div>
+        <div class="package-period" style="color:var(--gray-light);">ціна за запитом</div>
+        <div class="package-divider"></div>
+        <div class="package-items">
+          <div class="package-item"><div class="check"></div>До 3 брендів · 5 AI-платформ</div>
+          <div class="package-item"><div class="check"></div>150 промптів на тиждень</div>
+          <div class="package-item"><div class="check"></div>Live-дашборд для клієнта</div>
+          <div class="package-item"><div class="check"></div>Конкурентний аналіз</div>
+          <div class="package-item"><div class="check"></div>Щомісячний стратегічний call</div>
+          <div class="package-item"><div class="check"></div>Рекомендації по контенту</div>
+        </div>
+        <button class="btn-pkg" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Дізнатись ціну →</button>
+      </div>
+
+      <!-- STRATEGIC -->
+      <div class="package">
+        <div class="package-name">Strategic</div>
+        <div style="font-size:16px;font-weight:500;color:#0f172a;margin-bottom:.25rem;">Повний супровід</div>
+        <div class="package-period">ціна за запитом</div>
+        <div class="package-divider"></div>
+        <div class="package-items">
+          <div class="package-item"><div class="check"></div>Необмежена кількість брендів</div>
+          <div class="package-item"><div class="check"></div>400+ промптів на тиждень</div>
+          <div class="package-item"><div class="check"></div>GEO-оптимізація контенту</div>
+          <div class="package-item"><div class="check"></div>Білий дашборд з лого клієнта</div>
+          <div class="package-item"><div class="check"></div>Щотижневий call + Slack</div>
+        </div>
+        <button class="btn-pkg" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Обговорити →</button>
+      </div>
+
+    </div>
+
+    <!-- Free audit block -->
+    <div style="border:1px solid var(--border);border-radius:16px;padding:1.75rem 2rem;background:var(--off-white);margin-top:1.5rem;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:.75rem;">
+            <div style="width:28px;height:28px;background:var(--orange);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:15px;font-weight:500;color:var(--dark);">Безкоштовний AI-аудит бренду</span>
+            <span style="font-size:11px;background:#dcfce7;color:#166534;padding:2px 10px;border-radius:99px;font-weight:500;">Безкоштовно</span>
+          </div>
+          <p style="font-size:13px;color:var(--gray-mid);margin-bottom:1rem;font-weight:300;">Перед підпискою ми проводимо аудит вашого бренду — ви бачите реальну картину ще до оплати.</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem .75rem;">
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-mid);">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>Share of Voice у ChatGPT
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-mid);">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>Реальні відповіді ChatGPT про бренд
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-mid);">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>Аналіз 3 конкурентів
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-mid);">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>Виявлені помилки і неточності
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-mid);">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>Порівняння позицій з конкурентами
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-mid);">
+              <div style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;"></div>3 пріоритетні рекомендації
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:.5rem;flex-shrink:0;">
+          <div style="font-size:11px;color:var(--gray-mid);font-weight:300;">Готово за 48 годин</div>
+          <a href="#cta" class="btn-primary" style="font-size:13px;padding:11px 24px;white-space:nowrap;">Замовити аудит →</a>
+          <div style="font-size:11px;color:var(--gray-mid);font-weight:300;">Без зобов'язань · Без оплати</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- AFTER AUDIT -->
+<section style="background:#0f172a;padding:100px 5%;">
+  <div class="section-inner">
+    <span class="section-label">Після аудиту</span>
+    <h2 class="section-h2" style="color:var(--white);">Що відбувається<br>після того як ви отримали звіт</h2>
+    <p class="section-sub" style="color:var(--gray-light);margin-bottom:3.5rem;">Звіт — це не кінець. Це початок роботи. Ми не просто показуємо дані — ми даємо план конкретних дій.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e293b;border-radius:16px;overflow:hidden;">
+
+      <!-- Step 1 -->
+      <div style="background:#111827;padding:2rem;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;">
+          <div style="width:36px;height:36px;background:rgba(232,93,32,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#e85d20;letter-spacing:1px;">01</span>
+          </div>
+          <div style="font-size:15px;font-weight:500;color:white;">Отримуєте звіт</div>
+        </div>
+        <p style="font-size:13px;color:#64748b;line-height:1.7;font-weight:300;">Щопонеділка — PDF зі Share of Voice, сентиментом, помилками і динамікою. Плюс три пріоритетні рекомендації що робити цього тижня.</p>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #1e293b;">
+          <div style="font-size:11px;color:#e85d20;font-weight:500;letter-spacing:.04em;">ФОРМАТ</div>
+          <div style="font-size:12px;color:#475569;margin-top:4px;">PDF-звіт · Live-дашборд · Email-алерти</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div style="background:#111827;padding:2rem;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;">
+          <div style="width:36px;height:36px;background:rgba(232,93,32,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#e85d20;letter-spacing:1px;">02</span>
+          </div>
+          <div style="font-size:15px;font-weight:500;color:white;">Розумієте де проблема</div>
+        </div>
+        <p style="font-size:13px;color:#64748b;line-height:1.7;font-weight:300;">AI не згадує бренд у запитах про вагітність? Дає неточне дозування? Рекомендує конкурента першим? Ви бачите це конкретно — по кожному промпту і кожній платформі.</p>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #1e293b;">
+          <div style="font-size:11px;color:#e85d20;font-weight:500;letter-spacing:.04em;">РЕЗУЛЬТАТ</div>
+          <div style="font-size:12px;color:#475569;margin-top:4px;">Чітка картина · Пріоритети · Ризики</div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div style="background:#111827;padding:2rem;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;">
+          <div style="width:36px;height:36px;background:rgba(232,93,32,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#e85d20;letter-spacing:1px;">03</span>
+          </div>
+          <div style="font-size:15px;font-weight:500;color:white;">Отримуєте план дій</div>
+        </div>
+        <p style="font-size:13px;color:#64748b;line-height:1.7;font-weight:300;">Ми показуємо які майданчики ChatGPT цитує у вашій категорії, якого контенту не вистачає і що саме написати щоб AI почав рекомендувати ваш бренд правильно.</p>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #1e293b;">
+          <div style="font-size:11px;color:#e85d20;font-weight:500;letter-spacing:.04em;">ДІЄТЕ</div>
+          <div style="font-size:12px;color:#475569;margin-top:4px;">Контент · Майданчики · Формат</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Three action levels -->
+    <div style="margin-top:1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+
+      <div style="border:1px solid #1e293b;border-radius:12px;padding:1.25rem;">
+        <div style="font-size:10px;color:#4ade80;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem;">Швидкі дії · 1-2 тижні</div>
+        <div style="font-size:13px;font-weight:500;color:white;margin-bottom:.5rem;">Без бюджету</div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;font-weight:300;">Передаєте рекомендації контент-команді. Вони додають FAQ-блок з правильними формулюваннями на сайт або Likar.info. ChatGPT починає цитувати за 3-6 тижнів.</div>
+      </div>
+
+      <div style="border:1px solid #1e293b;border-radius:12px;padding:1.25rem;">
+        <div style="font-size:10px;color:#facc15;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem;">Середні дії · 1-2 місяці</div>
+        <div style="font-size:13px;font-weight:500;color:white;margin-bottom:.5rem;">Невеликий бюджет</div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;font-weight:300;">Розміщуєте статті на авторитетних майданчиках які AI цитує — Health-ua.com, Apteka.ua, Likar.info. З правильними формулюваннями і назвою бренду в заголовку.</div>
+      </div>
+
+      <div style="border:1px solid #1e293b;border-radius:12px;padding:1.25rem;">
+        <div style="font-size:10px;color:#e85d20;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.5rem;">Стратегічні · квартал+</div>
+        <div style="font-size:13px;font-weight:500;color:white;margin-bottom:.5rem;">Системна робота</div>
+        <div style="font-size:12px;color:#64748b;line-height:1.6;font-weight:300;">Переглядаєте контент-стратегію бренду під AI-видимість. Контент створюється не для Google а для ChatGPT — інша структура, інші формати, інші майданчики.</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY PHARMA -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <span class="section-label">Чому ми</span>
+    <h2 class="section-h2">Фармацевтична<br>експертиза в основі</h2>
+
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-title">Знаємо фарму зсередини</div>
+            <div class="why-body">Ми розуміємо OTC і Rx специфіку, MNN, compliance вимоги. Наша промпт-бібліотека побудована на реальних запитах пацієнтів, лікарів і провізорів.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-title">Дія, не просто звіт</div>
+            <div class="why-body">Ми не тільки показуємо що AI говорить — ми рекомендуємо де і який контент розмістити щоб змінити ситуацію. З розумінням фармацевтичного комплаєнсу.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-title">Перші в Україні</div>
+            <div class="why-body">Немає іншої агенції в Україні яка спеціалізується саме на AI brand visibility для фарми. Ви отримуєте перевагу першого гравця в ніші.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <div class="why-title">Profound Partner</div>
+            <div class="why-body">Ми використовуємо Profound — провідну AEO-платформу ($1B оцінка) з HIPAA compliance і SOC 2 Type II сертифікацією. Дані захищені.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual">
+        <div class="why-visual-title">Share of Voice · Знеболювальні · ChatGPT</div>
+        <div class="sov-bar">
+          <div class="sov-bar-top"><span class="sov-brand">Nurofen</span><span class="sov-val">71%</span></div>
+          <div class="sov-track"><div class="sov-fill" style="width:71%"></div></div>
+        </div>
+        <div class="sov-bar">
+          <div class="sov-bar-top"><span class="sov-brand" style="color:var(--gray-light)">Конкурент A</span><span class="sov-val" style="color:var(--gray-mid)">18%</span></div>
+          <div class="sov-track"><div class="sov-fill gray" style="width:18%"></div></div>
+        </div>
+        <div class="sov-bar">
+          <div class="sov-bar-top"><span class="sov-brand" style="color:var(--gray-light)">Конкурент B</span><span class="sov-val" style="color:var(--gray-mid)">8%</span></div>
+          <div class="sov-track"><div class="sov-fill gray" style="width:8%"></div></div>
+        </div>
+        <div class="sov-bar">
+          <div class="sov-bar-top"><span class="sov-brand" style="color:var(--gray-light)">Інші</span><span class="sov-val" style="color:var(--gray-mid)">3%</span></div>
+          <div class="sov-track"><div class="sov-fill low" style="width:3%"></div></div>
+        </div>
+
+        <div class="sentiment-row">
+          <div class="sent sent-positive">
+            <div class="sent-n">83%</div>
+            <div class="sent-l">Позитивний</div>
+          </div>
+          <div class="sent sent-neutral">
+            <div class="sent-n">12%</div>
+            <div class="sent-l">Нейтральний</div>
+          </div>
+          <div class="sent sent-negative">
+            <div class="sent-n">5%</div>
+            <div class="sent-l">Негативний</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-inner">
+    <h2 class="cta-h">Дізнайтесь що AI каже про <em>вас</em> сьогодні.</h2>
+    <p class="cta-sub">Ми проведемо безкоштовний аудит вашого бренду в ChatGPT, Gemini і Perplexity. Покажемо реальні відповіді, Share of Voice і де є проблеми. Без зобов'язань.</p>
+    <div class="cta-actions">
+      <a href="mailto:loyac.pharma@gmail.com" class="btn-primary" style="font-size:16px;padding:16px 40px">Замовити безкоштовний аудит →</a>
+      <a href="tel:+380984405244" class="btn-ghost" style="font-size:16px;padding:15px 32px">Зателефонувати</a>
+    </div>
+    <p class="cta-note">Відповідаємо протягом 24 годин · Перший аудит безкоштовно</p>
+    <a href="https://t.me/skopixai" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:1.25rem;font-size:13px;color:#475569;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#475569"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 14.447l-2.938-.918c-.638-.196-.651-.638.136-.943l11.443-4.41c.537-.194 1.006.131.731.072z"/></svg>
+      Більше про AI у фармації на каналі @skopixai
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg height="28" viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;">
+      <g transform="matrix(1,0,0,1,18,108)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:78px;font-weight:900;fill:rgb(51,65,85);">S<tspan x="49.685px 99.371px" y="0px 0px">KO</tspan></text>
+      </g>
+      <g transform="matrix(1,0,0,1,176,108)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:78px;font-weight:900;fill:rgb(232,93,32);">P<tspan x="49.685px 69.016px" y="0px 0px">IX</tspan></text>
+      </g>
+      <g transform="matrix(1,0,0,1,298,55)">
+        <text x="0px" y="0px" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:28px;font-weight:700;fill:white;">.<tspan x="7.639px 23.072px" y="0px 0px">ai</tspan></text>
+      </g>
+    </svg>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:4px;text-align:center;">
+    <span class="footer-copy">© 2026 Skopix.ai · AI Brand Visibility для фармацевтичних компаній України</span>
+    <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:4px;">
+      <span style="font-size:12px;color:#475569;display:flex;align-items:center;gap:5px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Київ, вул. Тарасівська, 9
+      </span>
+      <a href="tel:+380984405244" style="font-size:12px;color:#475569;text-decoration:none;display:flex;align-items:center;gap:5px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.29h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17.5z"/></svg>
+        +38 098 440 52 44
+      </a>
+      <a href="mailto:loyac.pharma@gmail.com" style="font-size:12px;color:#475569;text-decoration:none;display:flex;align-items:center;gap:5px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        loyac.pharma@gmail.com
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-links">
+    <a href="https://t.me/skopixai" target="_blank" style="display:flex;align-items:center;gap:5px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#64748b"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.269c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.19 14.447l-2.938-.918c-.638-.196-.651-.638.136-.943l11.443-4.41c.537-.194 1.006.131.731.072z"/></svg>
+      @skopixai
+    </a>
+    <a href="#">Умови</a>
+    <a href="#">Приватність</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    if(!id) return;
+    const el = document.getElementById(id);
+    if(el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.style.opacity = '1';
+  });
+}, {threshold: 0.1});
+</script>
+</body>
+</html>
