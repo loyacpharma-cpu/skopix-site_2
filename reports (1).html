@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Brand Reports · Skopix.ai</title>
+<meta name="description" content="Щомісячна аналітика Share of Voice фармацевтичних брендів у ChatGPT, Gemini і Perplexity. Реальні дані з промптів по категоріях.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8fafc;color:#0f172a;}
+
+nav{background:#0a0f1e;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e293b;position:sticky;top:0;z-index:100;}
+.nav-logo{display:flex;align-items:baseline;text-decoration:none;}
+.nav-sko{font-size:22px;font-weight:900;color:#334155;letter-spacing:-1px;}
+.nav-pix{font-size:22px;font-weight:900;color:#e85d20;letter-spacing:-1px;}
+.nav-ai{font-size:10px;font-weight:500;color:white;vertical-align:super;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-size:13px;color:#475569;text-decoration:none;}
+.nav-links a:hover{color:white;}
+.nav-links a.active{color:#e85d20;}
+.nav-cta{background:#e85d20;color:white;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;}
+
+.hero{background:#0a0f1e;padding:4rem 5% 0;position:relative;overflow:hidden;}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:#e85d20;}
+.hero-circle{position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;border:1px solid #1e293b;opacity:.3;}
+.hero-circle2{position:absolute;right:-30px;top:-30px;width:180px;height:180px;border-radius:50%;border:1px solid #1e293b;opacity:.25;}
+
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(232,93,32,0.1);border:0.5px solid rgba(232,93,32,0.2);padding:5px 14px;border-radius:99px;margin-bottom:1.5rem;}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:#e85d20;}
+.hero-tag{font-size:11px;color:#e85d20;letter-spacing:.08em;text-transform:uppercase;font-weight:500;}
+.hero-title{font-size:clamp(28px,4vw,48px);font-weight:500;color:white;line-height:1.15;margin-bottom:.75rem;}
+.hero-title span{color:#e85d20;}
+.hero-sub{font-size:15px;color:#475569;margin-bottom:2.5rem;font-weight:300;line-height:1.6;max-width:520px;}
+
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);background:#111827;border-top:1px solid #1e293b;}
+.hstat{padding:1.25rem 1.5rem;border-right:1px solid #1e293b;}
+.hstat:last-child{border-right:none;}
+.hstat-n{font-size:32px;font-weight:500;color:#e85d20;line-height:1;margin-bottom:4px;}
+.hstat-l{font-size:12px;color:#475569;line-height:1.4;}
+
+.filters-bar{background:white;border-bottom:0.5px solid #e2e8f0;padding:.875rem 5%;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;position:sticky;top:64px;z-index:99;}
+.filter{font-size:12px;padding:5px 14px;border-radius:99px;border:0.5px solid #e2e8f0;color:#64748b;cursor:pointer;background:white;transition:all .15s;}
+.filter:hover{border-color:#94a3b8;color:#334155;}
+.filter.on{background:#e85d20;color:white;border-color:#e85d20;}
+
+.content{max-width:1100px;margin:0 auto;padding:2.5rem 5%;}
+
+.sec-header{display:flex;align-items:center;gap:.875rem;margin-bottom:1.5rem;}
+.sec-label{font-size:11px;color:#94a3b8;letter-spacing:.1em;text-transform:uppercase;font-weight:500;white-space:nowrap;}
+.sec-line{flex:1;height:0.5px;background:#e2e8f0;}
+.sec-badge{font-size:11px;padding:3px 10px;border-radius:4px;background:#f1f5f9;color:#94a3b8;white-space:nowrap;}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem;}
+
+.card{border-radius:12px;overflow:hidden;border:0.5px solid #e2e8f0;background:white;transition:border-color .15s,transform .15s;}
+.card:hover{border-color:#cbd5e1;transform:translateY(-2px);}
+.card-head{padding:1.5rem;position:relative;}
+.ch-pain{background:#180a02;}
+.ch-ped{background:#02081a;}
+.ch-soon{background:#f8fafc;border-bottom:0.5px solid #e2e8f0;}
+
+.card-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
+.card-cat{font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;}
+.cat-pain{color:#fb923c;}
+.cat-ped{color:#60a5fa;}
+.cat-soon{color:#94a3b8;}
+.card-prompts{font-size:10px;color:#334155;}
+.card-sov{font-size:52px;font-weight:500;color:#e85d20;line-height:1;margin-bottom:3px;letter-spacing:-2px;}
+.card-brand{font-size:12px;color:#475569;}
+.card-trend{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:#4ade80;margin-top:8px;}
+
+.card-body{padding:1.25rem;}
+.card-title{font-size:14px;font-weight:500;color:#0f172a;margin-bottom:.5rem;line-height:1.4;}
+.card-desc{font-size:12px;color:#64748b;margin-bottom:1rem;line-height:1.6;}
+.card-pills{display:flex;gap:.375rem;flex-wrap:wrap;margin-bottom:1rem;}
+.pill{font-size:10px;padding:3px 8px;border-radius:4px;background:#f1f5f9;color:#64748b;}
+.card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:.875rem;border-top:0.5px solid #f1f5f9;}
+.card-date{font-size:11px;color:#94a3b8;}
+.card-cta{font-size:12px;color:#e85d20;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:3px;}
+
+.soon-body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem 1.5rem;text-align:center;}
+.soon-ring{width:44px;height:44px;border-radius:50%;border:1px dashed #e2e8f0;display:flex;align-items:center;justify-content:center;margin-bottom:.875rem;}
+.soon-title{font-size:14px;font-weight:500;color:#0f172a;margin-bottom:4px;}
+.soon-sub{font-size:12px;color:#94a3b8;margin-bottom:.75rem;}
+.soon-eta{font-size:11px;padding:3px 12px;border-radius:99px;border:0.5px dashed #e2e8f0;color:#94a3b8;}
+
+.pulse{border-left:2px solid #e85d20;margin-bottom:3rem;background:white;border-radius:0 12px 12px 0;border-top:0.5px solid #e2e8f0;border-right:0.5px solid #e2e8f0;border-bottom:0.5px solid #e2e8f0;overflow:hidden;}
+.pulse-item{display:grid;grid-template-columns:72px 1fr;border-bottom:0.5px solid #f1f5f9;cursor:pointer;transition:background .15s;}
+.pulse-item:last-child{border-bottom:none;}
+.pulse-item:hover{background:#fafafa;}
+.pulse-left{padding:1rem .875rem 1rem 1.25rem;border-right:0.5px solid #f1f5f9;}
+.pulse-day{font-size:15px;font-weight:500;color:#e85d20;line-height:1.2;}
+.pulse-month{font-size:11px;color:#94a3b8;}
+.pulse-min{font-size:10px;color:#94a3b8;margin-top:6px;}
+.pulse-right{padding:1rem 1.25rem;}
+.pulse-title{font-size:14px;font-weight:500;color:#0f172a;margin-bottom:4px;line-height:1.4;}
+.pulse-teaser{font-size:12px;color:#64748b;line-height:1.5;margin-bottom:.5rem;}
+.pulse-tag{font-size:10px;padding:2px 8px;border-radius:4px;background:#f1f5f9;color:#94a3b8;}
+
+.cta-block{background:#0a0f1e;border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;border:0.5px solid #1e293b;}
+.cta-eyebrow{font-size:10px;color:#e85d20;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin-bottom:.375rem;}
+.cta-title{font-size:20px;font-weight:500;color:white;margin-bottom:.375rem;}
+.cta-sub{font-size:13px;color:#475569;}
+.cta-btn{background:#e85d20;color:white;border:none;padding:12px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;text-decoration:none;}
+
+footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-copy{font-size:12px;color:#334155;}
+.footer-links{display:flex;gap:1.25rem;}
+.footer-links a{font-size:12px;color:#334155;text-decoration:none;}
+.footer-links a:hover{color:#64748b;}
+
+@media(max-width:768px){
+  .grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .hero-stats{grid-template-columns:1fr;}
+  .hstat{border-right:none;border-bottom:1px solid #1e293b;}
+  .hstat:last-child{border-bottom:none;}
+  .pulse-item{grid-template-columns:60px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="nav-sko">SKO</span><span class="nav-pix">PIX</span><span class="nav-ai">.ai</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#problem">Проблема</a>
+    <a href="/#how">Як це працює</a>
+    <a href="/#packages">Пакети</a>
+    <a href="/reports.html" class="active">AI Reports</a>
+    <a href="/#cta">Контакти</a>
+  </div>
+  <a href="/#cta" class="nav-cta">Безкоштовний аудит</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="hero-dot"></div><div class="hero-tag">AI Brand Reports · Skopix.ai</div></div>
+    <div class="hero-title">Що ChatGPT говорить про<br><span>фармацевтичні бренди</span></div>
+    <div class="hero-sub">Щомісячна аналітика Share of Voice по категоріях. Щотижневий AI Pulse. Реальні дані з перевірених промптів.</div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">2</div><div class="hstat-l">Monthly Reports опубліковано</div></div>
+      <div class="hstat"><div class="hstat-n">380+</div><div class="hstat-l">промптів перевірено</div></div>
+      <div class="hstat"><div class="hstat-n">5</div><div class="hstat-l">AI-платформ моніторується</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="filters-bar">
+  <div class="filter on">Всі</div>
+  <div class="filter">Знеболення</div>
+  <div class="filter">Педіатрія</div>
+  <div class="filter">Алергія</div>
+  <div class="filter">Кардіологія</div>
+  <div class="filter">Вагітність</div>
+</div>
+
+<div class="content">
+
+  <div class="sec-header">
+    <div class="sec-label">Monthly Reports</div>
+    <div class="sec-line"></div>
+    <div class="sec-badge">Травень 2026</div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card" style="border-top:2px solid #e85d20;">
+      <div class="card-head ch-pain">
+        <div class="card-eyebrow">
+          <span class="card-cat cat-pain">Знеболення</span>
+          <span class="card-prompts">200+ промптів</span>
+        </div>
+        <div class="card-sov">71%</div>
+        <div class="card-brand">Nurofen · лідер категорії</div>
+        <div class="card-trend">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          +4% за місяць
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Знеболювальні в ChatGPT · Топ-3 бренди</div>
+        <div class="card-desc">ChatGPT + Perplexity. Share of Voice, сентимент, виявлені помилки у відповідях AI по OTC знеболенню.</div>
+        <div class="card-pills">
+          <span class="pill">Nurofen 71%</span>
+          <span class="pill">Диклофенак 18%</span>
+          <span class="pill">Кетанов 11%</span>
+        </div>
+        <div class="card-foot">
+          <span class="card-date">5 травня 2026</span>
+          <a href="#" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head ch-ped">
+        <div class="card-eyebrow">
+          <span class="card-cat cat-ped">Педіатрія</span>
+          <span class="card-prompts">180+ промптів</span>
+        </div>
+        <div class="card-sov">64%</div>
+        <div class="card-brand">Nurofen дитячий · лідер</div>
+        <div class="card-trend">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          +7% за місяць
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Дитячі препарати в ChatGPT · Топ-3 бренди</div>
+        <div class="card-desc">Температура, кашель, біль у дітей. Аналіз точності дозування у відповідях AI.</div>
+        <div class="card-pills">
+          <span class="pill">Nurofen 64%</span>
+          <span class="pill">Panadol 28%</span>
+          <span class="pill">Інші 8%</span>
+        </div>
+        <div class="card-foot">
+          <span class="card-date">12 травня 2026</span>
+          <a href="#" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-style:dashed;">
+      <div class="card-head ch-soon" style="min-height:140px;"></div>
+      <div class="soon-body">
+        <div class="soon-ring">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="soon-title">Антигістамінні в ChatGPT</div>
+        <div class="soon-sub">Алергія · Сезонний огляд</div>
+        <div class="soon-eta">Червень 2026</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sec-header">
+    <div class="sec-label">Weekly AI Pulse</div>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="pulse">
+    <div class="pulse-item">
+      <div class="pulse-left">
+        <div class="pulse-day">3</div>
+        <div class="pulse-month">трав</div>
+        <div class="pulse-min">6 хв</div>
+      </div>
+      <div class="pulse-right">
+        <a href="/pulse-ai-first-contact.html" class="pulse-title" style="text-decoration:none;color:#0f172a;">ChatGPT як перша точка контакту пацієнта з ліками. Як змінюється фармацевтичний маркетинг</a>
+        <div class="pulse-teaser">Share of Voice в ChatGPT стає новим KPI. 5.8B відвідувань щомісяця і 84% Google-запитів з AI-відповіддю.</div>
+        <span class="pulse-tag">Аналітика</span>
+      </div>
+    </div>
+    <div class="pulse-item">
+      <div class="pulse-left">
+        <div class="pulse-day">26</div>
+        <div class="pulse-month">квіт</div>
+        <div class="pulse-min">4 хв</div>
+      </div>
+      <div class="pulse-right">
+        <a href="/pulse-chatgpt-errors.html" class="pulse-title" style="text-decoration:none;color:#0f172a;">Кожен третій: точність ChatGPT у фармацевтичних консультаціях</a>
+        <div class="pulse-teaser">Нові дослідження фіксують системні неточності у відповідях ChatGPT про препарати. Що це означає для compliance.</div>
+        <span class="pulse-tag">Дослідження</span>
+      </div>
+    </div>
+    <div class="pulse-item">
+      <div class="pulse-left">
+        <div class="pulse-day">19</div>
+        <div class="pulse-month">квіт</div>
+        <div class="pulse-min">5 хв</div>
+      </div>
+      <div class="pulse-right">
+        <a href="/pulse-ozempic.html" class="pulse-title" style="text-decoration:none;color:#0f172a;">Семаглутид в ChatGPT: що фармацевтичні бренди мають знати у 2026</a>
+        <div class="pulse-teaser">Оземпік і ринок GLP-1 у 2026 -- аналіз патентної ситуації і AI-видимості бренду.</div>
+        <span class="pulse-tag">Тренди</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <div>
+      <div class="cta-eyebrow">Безкоштовно</div>
+      <div class="cta-title">Хочете знати позиції вашого бренду?</div>
+      <div class="cta-sub">PDF-звіт за 48 годин · Перший аудит безкоштовно</div>
+    </div>
+    <a href="/#cta" class="cta-btn">Замовити аудит →</a>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Skopix.ai · AI Brand Visibility для фармацевтичних компаній України</span>
+  <div class="footer-links">
+    <a href="/terms.html">Умови</a>
+    <a href="/privacy.html">Приватність</a>
+  </div>
+</footer>
+
+</body>
+</html>
