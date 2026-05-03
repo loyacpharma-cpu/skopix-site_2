@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хронічні хворі і ChatGPT: як пацієнти з діабетом і гіпертонією використовують AI · Skopix.ai</title>
+<meta name="description" content="Пацієнти з діабетом, гіпертонією і астмою активно запитують ChatGPT про корекцію дози, взаємодію препаратів і самолікування. Що дослідження кажуть про точність AI і що це означає для фармацевтичних брендів.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.7;}
+nav{background:#0a0f1e;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e293b;}
+.nav-logo{display:flex;align-items:baseline;text-decoration:none;}
+.nav-sko{font-size:22px;font-weight:900;color:#334155;letter-spacing:-1px;}
+.nav-pix{font-size:22px;font-weight:900;color:#e85d20;letter-spacing:-1px;}
+.nav-ai{font-size:10px;font-weight:500;color:white;vertical-align:super;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:13px;color:#475569;text-decoration:none;}
+.nav-links a.active{color:#e85d20;}
+.nav-cta{background:#e85d20;color:white;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;}
+.hero{background:#0a0f1e;padding:4rem 5% 3rem;border-bottom:1px solid #1e293b;position:relative;overflow:hidden;}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:#e85d20;}
+.hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+.hero-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.hero-tag{font-size:11px;color:#e85d20;letter-spacing:.08em;text-transform:uppercase;font-weight:500;background:rgba(232,93,32,0.1);border:0.5px solid rgba(232,93,32,0.2);padding:4px 12px;border-radius:99px;}
+.hero-date{font-size:12px;color:#475569;}
+.hero-read{font-size:12px;color:#475569;}
+.hero-title{font-size:clamp(26px,4vw,42px);font-weight:500;color:white;line-height:1.2;margin-bottom:1rem;}
+.hero-sub{font-size:16px;color:#64748b;font-weight:300;line-height:1.6;max-width:620px;}
+.article-wrap{max-width:780px;margin:0 auto;padding:3rem 5%;}
+.illustration{background:#0a0f1e;border-radius:16px;padding:2rem;margin:2rem 0;border:0.5px solid #1e293b;}
+.ill-label{font-size:11px;color:#475569;letter-spacing:.06em;text-transform:uppercase;font-weight:500;margin-bottom:1.25rem;text-align:center;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1e293b;border-radius:12px;overflow:hidden;}
+.stat-box{background:#111827;padding:1.25rem;text-align:center;}
+.stat-n{font-size:32px;font-weight:500;line-height:1;margin-bottom:4px;}
+.stat-l{font-size:11px;color:#475569;line-height:1.4;}
+.stat-orange{color:#e85d20;}
+.stat-blue{color:#60a5fa;}
+.stat-green{color:#4ade80;}
+.query-list{margin:1.5rem 0;}
+.query-item{background:#111827;border:0.5px solid #1e293b;border-radius:8px;padding:.75rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.75rem;}
+.query-dot{width:6px;height:6px;border-radius:50%;background:#e85d20;flex-shrink:0;}
+.query-text{font-size:13px;color:#94a3b8;font-style:italic;}
+.disease-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.875rem;margin:2rem 0;}
+.disease-card{background:white;border:0.5px solid #e2e8f0;border-radius:12px;padding:1.25rem;}
+.disease-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:.75rem;}
+.disease-name{font-size:13px;font-weight:500;color:#0f172a;margin-bottom:.625rem;}
+.disease-stat{font-size:22px;font-weight:500;color:#e85d20;margin-bottom:.25rem;}
+.disease-desc{font-size:11px;color:#64748b;line-height:1.4;}
+p{font-size:15px;color:#334155;margin-bottom:1.25rem;font-weight:300;line-height:1.75;}
+h2{font-size:22px;font-weight:500;color:#0f172a;margin:2.5rem 0 1rem;}
+.lead{font-size:18px;color:#334155;font-weight:300;line-height:1.7;margin-bottom:1.5rem;border-left:3px solid #e85d20;padding-left:1.25rem;}
+blockquote{background:#f1f5f9;border-left:3px solid #e85d20;padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin:1.5rem 0;font-size:14px;color:#475569;line-height:1.6;font-style:italic;}
+.source{font-size:11px;color:#94a3b8;margin-top:.5rem;font-style:normal;}
+.key-insight{background:#fff7ed;border:0.5px solid #fed7aa;border-radius:12px;padding:1.25rem;margin:1.5rem 0;}
+.key-insight-title{font-size:14px;font-weight:500;color:#c2410c;margin-bottom:.5rem;}
+.key-insight-text{font-size:13px;color:#7c2d12;line-height:1.6;}
+.cta-inline{background:#0a0f1e;border-radius:16px;padding:2rem;margin:2.5rem 0;border:0.5px solid #1e293b;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.cta-title{font-size:16px;font-weight:500;color:white;margin-bottom:4px;}
+.cta-sub{font-size:13px;color:#475569;}
+.cta-btn{background:#e85d20;color:white;border:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;text-decoration:none;}
+.sources-block{background:#f8fafc;border:0.5px solid #e2e8f0;border-radius:12px;padding:1.25rem;margin-top:2.5rem;}
+.sources-title{font-size:11px;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;font-weight:500;margin-bottom:.75rem;}
+.sources-list{list-style:none;}
+.sources-list li{font-size:12px;color:#64748b;margin-bottom:.375rem;padding-left:1rem;position:relative;}
+.sources-list li::before{content:"·";position:absolute;left:0;color:#e85d20;}
+footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;}
+.footer-copy{font-size:12px;color:#334155;}
+.footer-links{display:flex;gap:1.25rem;}
+.footer-links a{font-size:12px;color:#334155;text-decoration:none;}
+@media(max-width:640px){.stats-grid{grid-template-columns:1fr;}.disease-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span class="nav-sko">SKO</span><span class="nav-pix">PIX</span><span class="nav-ai">.ai</span></a>
+  <div class="nav-links"><a href="/">Головна</a><a href="/reports.html" class="active">AI Reports</a><a href="/#packages">Пакети</a></div>
+  <a href="/#cta" class="nav-cta">Замовити аудит</a>
+</nav>
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-tag">Дослідження</span>
+      <span class="hero-date">24 травня 2026</span>
+      <span class="hero-read">· 6 хв читання</span>
+    </div>
+    <h1 class="hero-title">Хронічні хворі і ChatGPT: як пацієнти з діабетом і гіпертонією використовують AI для управління лікуванням</h1>
+    <div class="hero-sub">537 мільйонів людей з діабетом і 1.3 мільярда з гіпертонією у світі. Значна частина з них вже запитує ChatGPT про свої препарати. Що дослідження кажуть про якість цих відповідей і що це означає для фармацевтичних брендів.</div>
+  </div>
+</div>
+<div class="article-wrap">
+  <p class="lead">Пацієнти з хронічними захворюваннями — найактивніші користувачі AI у медицині. Вони не запитують ChatGPT один раз, вони повертаються щодня. І їхні рішення щодо препаратів все частіше формуються під впливом AI-відповідей.</p>
+
+  <div class="illustration">
+    <div class="ill-label">Хронічні захворювання і AI-пошук · глобальні цифри</div>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-n stat-orange">537M</div><div class="stat-l">дорослих з діабетом у світі потребують постійної інформації про ліки</div></div>
+      <div class="stat-box"><div class="stat-n stat-blue">1.3B</div><div class="stat-l">людей з гіпертонією — одна з найбільших груп пацієнтів що запитують AI</div></div>
+      <div class="stat-box"><div class="stat-n stat-green">82.2%</div><div class="stat-l">точність ChatGPT у педіатричних рекомендаціях, але з помилками у дозуванні і ліках</div></div>
+    </div>
+    <div style="margin-top:1.25rem;">
+      <div style="font-size:11px;color:#475569;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.75rem;">Типові запити пацієнтів з хронічними захворюваннями в ChatGPT</div>
+      <div class="query-list">
+        <div class="query-item"><div class="query-dot"></div><div class="query-text">"Чи можна скоригувати дозу метформіну самостійно якщо аналізи покращились?"</div></div>
+        <div class="query-item"><div class="query-dot"></div><div class="query-text">"Які побічні ефекти якщо пити два препарати від тиску одночасно?"</div></div>
+        <div class="query-item"><div class="query-dot"></div><div class="query-text">"Чи можна замінити Нолипрел на дешевший аналог?"</div></div>
+        <div class="query-item"><div class="query-dot"></div><div class="query-text">"Що їсти щоб знизити цукор без збільшення дози інсуліну?"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Чому хронічні хворі особливо активні в AI-пошуку</h2>
+  <p>Самоменеджмент — ключовий елемент лікування хронічних захворювань. Пацієнти щодня приймають рішення: що їсти, коли і скільки прийняти ліків, як реагувати на зміну симптомів. Ці рішення складні, потребують постійних знань і часто виникають у моменти коли лікар недоступний.</p>
+  <p>ChatGPT вирішує цю проблему доступності. Він відповідає о 3 ночі коли пацієнт відчув незвичний тиск. Він пояснює складні медичні терміни простою мовою. Він не засуджує за запитання які пацієнт соромиться поставити лікарю.</p>
+
+  <blockquote>
+    ChatGPT має великий потенціал у щоденному моніторингу і менеджменті хронічних захворювань — гіпертонії і діабету. Пацієнти часто мають труднощі з постійним відстеженням стану через складність і обмеженість часу.
+    <div class="source">Khetan, Suvarna — Global Cardiology Science and Practice, PMC, грудень 2024</div>
+  </blockquote>
+
+  <h2>Три категорії хронічних хворих і їх AI-запити</h2>
+  <div class="disease-grid">
+    <div class="disease-card">
+      <div class="disease-icon" style="background:#fff7ed;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="disease-name">Діабет 2 типу</div>
+      <div class="disease-stat">537M</div>
+      <div class="disease-desc">Запитують про дозування метформіну, інсуліну, взаємодію з їжею, глікемічний індекс продуктів і заміну препаратів</div>
+    </div>
+    <div class="disease-card">
+      <div class="disease-icon" style="background:#eff6ff;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <div class="disease-name">Гіпертонія</div>
+      <div class="disease-stat">1.3B</div>
+      <div class="disease-desc">Запитують про взаємодію між препаратами від тиску, коли збільшити дозу, чи можна пропустити прийом і яке АД є небезпечним</div>
+    </div>
+    <div class="disease-card">
+      <div class="disease-icon" style="background:#f0fdf4;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/></svg>
+      </div>
+      <div class="disease-name">Астма і ХОЗЛ</div>
+      <div class="disease-stat">262M</div>
+      <div class="disease-desc">Запитують про правила використання інгаляторів, тригери загострень, коли застосовувати рятувальний інгалятор vs базисну терапію</div>
+    </div>
+  </div>
+
+  <h2>Що дослідження кажуть про якість AI-відповідей</h2>
+  <p>Дослідження 2025 року у журналі npj Digital Medicine оцінило якість AI-чат-ботів у менеджменті хронічних захворювань — і виявило суттєві варіації у якості відповідей залежно від категорії запиту і конкретного захворювання.</p>
+  <p>ChatGPT досягає загальної точності 82.2% у педіатричних рекомендаціях за даними дослідження з 4160 клінічними питаннями по 104 захворюваннях. Однак саме у питаннях дозування препаратів і хірургічного лікування фіксується найбільша кількість помилок.</p>
+
+  <div class="key-insight">
+    <div class="key-insight-title">Ключова проблема для фармацевтичних брендів</div>
+    <div class="key-insight-text">Пацієнт з діабетом запитує ChatGPT "чи можна замінити мій препарат на дешевший аналог" — і отримує відповідь. Ця відповідь може містити назву конкурентного бренду або загальну назву МНН. Якщо ваш бренд не присутній у відповіді — ви втрачаєте можливість утримати пацієнта. Для хронічних захворювань де пацієнт приймає препарат роками — це особливо критично.</div>
+  </div>
+
+  <h2>AI як інструмент підтримки — не заміна лікаря</h2>
+  <p>Важливо розуміти що пацієнти з хронічними захворюваннями використовують ChatGPT переважно як доповнення до медичної допомоги — для роз'яснення, підготовки до візиту до лікаря і отримання загальної інформації між візитами. Це підтверджує системний огляд PMC 2025 року.</p>
+  <p>Організації як Onduo вже інтегрують AI для віртуального коучингу пацієнтів з діабетом — на основі даних про харчування, рівень глюкози і фізичну активність. Це показує напрям де AI стає легітимним інструментом підтримки при правильній імплементації.</p>
+
+  <blockquote>
+    AI-інструменти для пацієнтів з хронічними захворюваннями дозволяють більш часте і ефективне залучення. Вони можуть допомогти з самоменеджментом — але потребують оптимізації для підвищення доступності і якості медичної інформації.
+    <div class="source">PMC: AI-Based Chatbots in Chronic Disease Management — Systematic Review, Cureus, березень 2025</div>
+  </blockquote>
+
+  <h2>Що це означає для фармацевтичних брендів у категорії хронічних захворювань</h2>
+  <p>Пацієнти з хронічними захворюваннями — найлояльніша аудиторія у фармі. Вони приймають ліки роками. Але їхня лояльність до бренду тепер частково формується через AI-відповіді які вони отримують щодня.</p>
+  <p>Моніторинг Share of Voice у запитах пов'язаних з хронічними захворюваннями — діабет, гіпертонія, астма — дозволяє розуміти чи присутній ваш бренд у цьому щоденному AI-діалозі з пацієнтом. І якщо не присутній — що потрібно змінити у контентній стратегії щоб це виправити.</p>
+
+  <div class="cta-inline">
+    <div>
+      <div class="cta-title">Дізнайтесь що ChatGPT говорить про ваш бренд пацієнтам з хронічними захворюваннями</div>
+      <div class="cta-sub">Безкоштовний AI-аудит · PDF за 48 годин · Перший аудит безкоштовно</div>
+    </div>
+    <a href="/#cta" class="cta-btn">Замовити аудит →</a>
+  </div>
+
+  <div class="sources-block">
+    <div class="sources-title">Джерела</div>
+    <ul class="sources-list">
+      <li>Khetan, Suvarna: Empowering patients through AI — the role of ChatGPT in daily monitoring of blood pressure and blood glucose levels. Global Cardiology Science and Practice, PMC, грудень 2024. DOI: 10.21542/gcsp.2024.56</li>
+      <li>PMC: Artificial Intelligence-Based Chatbots in Chronic Disease Management — A Systematic Review. Cureus, березень 2025. DOI: 10.7759/cureus.81001</li>
+      <li>Nature npj Digital Medicine: Quality safety and disparity of an AI chatbot in managing chronic diseases — simulated patient experiments, вересень 2025</li>
+      <li>Wei et al: Evaluation of ChatGPT's performance in providing treatment recommendations for pediatric diseases. PMC, 2023. DOI: 10.1002/pdi3.42</li>
+      <li>IDF Diabetes Atlas, 10th Edition — глобальна статистика діабету</li>
+      <li>WHO: Hypertension — key facts, 2023</li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <span class="footer-copy">© 2026 Skopix.ai · AI Brand Visibility для фармацевтичних компаній України</span>
+  <div class="footer-links"><a href="/reports.html">AI Reports</a><a href="/terms.html">Умови</a><a href="/privacy.html">Приватність</a></div>
+</footer>
+</body>
+</html>

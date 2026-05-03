@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI і педіатрія: що ChatGPT радить батькам про ліки для дітей · Skopix.ai</title>
+<meta name="description" content="Батьки довіряють ChatGPT більше ніж людським експертам для інформації про ліки для дітей. Дослідження 2024-2025 років про точність AI у педіатрії і що це означає для фармацевтичних брендів.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f8fafc;color:#0f172a;line-height:1.7;}
+nav{background:#0a0f1e;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1e293b;}
+.nav-logo{display:flex;align-items:baseline;text-decoration:none;}
+.nav-sko{font-size:22px;font-weight:900;color:#334155;letter-spacing:-1px;}
+.nav-pix{font-size:22px;font-weight:900;color:#e85d20;letter-spacing:-1px;}
+.nav-ai{font-size:10px;font-weight:500;color:white;vertical-align:super;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:13px;color:#475569;text-decoration:none;}
+.nav-links a.active{color:#e85d20;}
+.nav-cta{background:#e85d20;color:white;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;}
+.hero{background:#0a0f1e;padding:4rem 5% 3rem;border-bottom:1px solid #1e293b;position:relative;overflow:hidden;}
+.hero-accent{position:absolute;top:0;left:0;right:0;height:3px;background:#e85d20;}
+.hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+.hero-meta{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.hero-tag{font-size:11px;color:#e85d20;letter-spacing:.08em;text-transform:uppercase;font-weight:500;background:rgba(232,93,32,0.1);border:0.5px solid rgba(232,93,32,0.2);padding:4px 12px;border-radius:99px;}
+.hero-date{font-size:12px;color:#475569;}
+.hero-read{font-size:12px;color:#475569;}
+.hero-title{font-size:clamp(26px,4vw,42px);font-weight:500;color:white;line-height:1.2;margin-bottom:1rem;}
+.hero-sub{font-size:16px;color:#64748b;font-weight:300;line-height:1.6;max-width:620px;}
+.article-wrap{max-width:780px;margin:0 auto;padding:3rem 5%;}
+.big-finding{background:#0a0f1e;border-radius:16px;padding:2.5rem;margin:2rem 0;border:0.5px solid #1e293b;text-align:center;}
+.big-finding-label{font-size:11px;color:#475569;letter-spacing:.06em;text-transform:uppercase;font-weight:500;margin-bottom:1rem;}
+.big-finding-n{font-size:80px;font-weight:500;color:#e85d20;line-height:1;letter-spacing:-3px;}
+.big-finding-text{font-size:16px;color:#94a3b8;margin-top:.75rem;font-weight:300;}
+.big-finding-source{font-size:12px;color:#334155;margin-top:1rem;}
+.trust-comparison{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1e293b;border-radius:12px;overflow:hidden;margin:1.5rem 0;}
+.trust-col{background:#111827;padding:1.5rem;}
+.trust-title{font-size:12px;color:#64748b;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem;}
+.trust-item{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
+.trust-bar-wrap{flex:1;background:#1e293b;border-radius:4px;height:8px;overflow:hidden;}
+.trust-bar{height:100%;border-radius:4px;}
+.trust-label{font-size:12px;color:#94a3b8;width:80px;flex-shrink:0;}
+.trust-pct{font-size:12px;font-weight:500;width:36px;text-align:right;flex-shrink:0;}
+.scenarios{margin:2rem 0;}
+.scenario{background:white;border:0.5px solid #e2e8f0;border-radius:12px;padding:1.25rem;margin-bottom:.875rem;display:grid;grid-template-columns:48px 1fr;gap:1rem;align-items:start;}
+.scenario-num{width:48px;height:48px;border-radius:50%;background:#fff7ed;border:1px solid #fed7aa;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.scenario-title{font-size:14px;font-weight:500;color:#0f172a;margin-bottom:.375rem;}
+.scenario-text{font-size:13px;color:#64748b;line-height:1.5;}
+.scenario-risk{display:inline-block;margin-top:.5rem;font-size:11px;padding:2px 8px;border-radius:4px;}
+.risk-high{background:#fef2f2;color:#991b1b;}
+.risk-mid{background:#fffbeb;color:#92400e;}
+.risk-low{background:#f0fdf4;color:#166534;}
+p{font-size:15px;color:#334155;margin-bottom:1.25rem;font-weight:300;line-height:1.75;}
+h2{font-size:22px;font-weight:500;color:#0f172a;margin:2.5rem 0 1rem;}
+.lead{font-size:18px;color:#334155;font-weight:300;line-height:1.7;margin-bottom:1.5rem;border-left:3px solid #e85d20;padding-left:1.25rem;}
+blockquote{background:#f1f5f9;border-left:3px solid #e85d20;padding:1rem 1.25rem;border-radius:0 8px 8px 0;margin:1.5rem 0;font-size:14px;color:#475569;line-height:1.6;font-style:italic;}
+.source{font-size:11px;color:#94a3b8;margin-top:.5rem;font-style:normal;}
+.accuracy-note{background:#f0fdf4;border:0.5px solid #bbf7d0;border-radius:12px;padding:1.25rem;margin:1.5rem 0;}
+.accuracy-title{font-size:14px;font-weight:500;color:#166534;margin-bottom:.5rem;}
+.accuracy-text{font-size:13px;color:#14532d;line-height:1.6;}
+.cta-inline{background:#0a0f1e;border-radius:16px;padding:2rem;margin:2.5rem 0;border:0.5px solid #1e293b;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.cta-title{font-size:16px;font-weight:500;color:white;margin-bottom:4px;}
+.cta-sub{font-size:13px;color:#475569;}
+.cta-btn{background:#e85d20;color:white;border:none;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;text-decoration:none;}
+.sources-block{background:#f8fafc;border:0.5px solid #e2e8f0;border-radius:12px;padding:1.25rem;margin-top:2.5rem;}
+.sources-title{font-size:11px;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;font-weight:500;margin-bottom:.75rem;}
+.sources-list{list-style:none;}
+.sources-list li{font-size:12px;color:#64748b;margin-bottom:.375rem;padding-left:1rem;position:relative;}
+.sources-list li::before{content:"·";position:absolute;left:0;color:#e85d20;}
+footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:4rem;}
+.footer-copy{font-size:12px;color:#334155;}
+.footer-links{display:flex;gap:1.25rem;}
+.footer-links a{font-size:12px;color:#334155;text-decoration:none;}
+@media(max-width:640px){.trust-comparison{grid-template-columns:1fr;}.scenario{grid-template-columns:36px 1fr;}.nav-links{display:none;}.big-finding-n{font-size:56px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo"><span class="nav-sko">SKO</span><span class="nav-pix">PIX</span><span class="nav-ai">.ai</span></a>
+  <div class="nav-links"><a href="/">Головна</a><a href="/reports.html" class="active">AI Reports</a><a href="/#packages">Пакети</a></div>
+  <a href="/#cta" class="nav-cta">Замовити аудит</a>
+</nav>
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="hero-tag">Педіатрія</span>
+      <span class="hero-date">31 травня 2026</span>
+      <span class="hero-read">· 5 хв читання</span>
+    </div>
+    <h1 class="hero-title">AI і педіатрія: що ChatGPT радить батькам про ліки для дітей</h1>
+    <div class="hero-sub">Батьки довіряють ChatGPT більше ніж людським експертам для інформації про безрецептурні ліки для дітей. Дослідження Journal of Pediatric Psychology 2024 року і що це означає для фармацевтичних брендів у педіатричній категорії.</div>
+  </div>
+</div>
+<div class="article-wrap">
+  <p class="lead">Дитина захворіла о 2 ночі. Температура 38.9. Батьки не телефонують педіатру, вони відкривають ChatGPT. І те що вони отримають у відповіді формує їхнє рішення — який препарат дати і в якій дозі.</p>
+
+  <div class="big-finding">
+    <div class="big-finding-label">Ключове відкриття · Journal of Pediatric Psychology, 2024</div>
+    <div class="big-finding-n">Більше</div>
+    <div class="big-finding-text">Батьки вважають ChatGPT більш надійним джерелом інформації про безрецептурні ліки для дітей ніж матеріали підготовлені людськими експертами</div>
+    <div class="big-finding-source">Джерело: Journal of Pediatric Psychology, жовтень 2024 — gastroenterologyadvisor.com</div>
+  </div>
+
+  <h2>Батьки довіряють ChatGPT — що це означає</h2>
+  <p>Дослідження рекрутувало батьків через Amazon Mechanical Turk для порівняльного аналізу. Учасники оцінювали інформацію про здоров'я дітей від ChatGPT з supervізованими промптами vs матеріали від людських експертів.</p>
+  <p>Результат виявився несподіваним для дослідників: батьки не просто прийняли AI-контент — вони оцінили його як більш точний і надійний, особливо для інформації про безрецептурні ліки. При цьому не було значущої різниці між оцінками моральності і компетентності автора між двома джерелами.</p>
+
+  <div class="trust-comparison">
+    <div class="trust-col">
+      <div class="trust-title">Оцінка батьків · OTC ліки для дітей</div>
+      <div class="trust-item">
+        <div class="trust-label" style="font-size:11px;color:#60a5fa;">ChatGPT</div>
+        <div class="trust-bar-wrap"><div class="trust-bar" style="width:82%;background:#60a5fa;"></div></div>
+        <div class="trust-pct" style="color:#60a5fa;">Вище</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-label" style="font-size:11px;color:#94a3b8;">Людський експерт</div>
+        <div class="trust-bar-wrap"><div class="trust-bar" style="width:60%;background:#334155;"></div></div>
+        <div class="trust-pct" style="color:#94a3b8;">Нижче</div>
+      </div>
+      <div style="font-size:11px;color:#334155;margin-top:.75rem;">Різниця статистично значуща: p &lt; .001</div>
+    </div>
+    <div class="trust-col">
+      <div class="trust-title">Точність ChatGPT · педіатрія</div>
+      <div class="trust-item">
+        <div class="trust-label" style="font-size:11px;color:#4ade80;">Загальна</div>
+        <div class="trust-bar-wrap"><div class="trust-bar" style="width:82%;background:#4ade80;"></div></div>
+        <div class="trust-pct" style="color:#4ade80;">82.2%</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-label" style="font-size:11px;color:#e85d20;">Дозування</div>
+        <div class="trust-bar-wrap"><div class="trust-bar" style="width:55%;background:#e85d20;"></div></div>
+        <div class="trust-pct" style="color:#e85d20;">Гірше</div>
+      </div>
+      <div style="font-size:11px;color:#334155;margin-top:.75rem;">Дослідження 4160 питань, 104 педіатричних захворювання</div>
+    </div>
+  </div>
+
+  <h2>Типові сценарії і ризики</h2>
+  <div class="scenarios">
+    <div class="scenario">
+      <div class="scenario-num">🌡️</div>
+      <div>
+        <div class="scenario-title">Температура у дитини</div>
+        <div class="scenario-text">Дослідження Journal of Paediatrics (2025) оцінило 50 найчастіших питань про температуру в ChatGPT. Відповіді надійні і зрозумілі, але з непослідовністю у рівнях складності для різних вікових груп батьків.</div>
+        <span class="scenario-risk risk-low">Помірний ризик</span>
+      </div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-num">💊</div>
+      <div>
+        <div class="scenario-title">Дозування Нурофен vs Панадол</div>
+        <div class="scenario-text">Батьки запитують ChatGPT що краще від температури у дитини 4 роки. ChatGPT дає рекомендацію з конкретним брендом. Педіатр CHOC попереджає: ChatGPT не знає медичної історії дитини, алергій і супутніх захворювань.</div>
+        <span class="scenario-risk risk-mid">Середній ризик</span>
+      </div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-num">🦠</div>
+      <div>
+        <div class="scenario-title">Антибіотик для дитини</div>
+        <div class="scenario-text">Ризик зростає в педіатричних спеціалізованих і рідкісних захворюваннях де надійна інформація обмежена. ChatGPT рекомендують використовувати як доповнення, не заміну консультації лікаря.</div>
+        <span class="scenario-risk risk-high">Підвищений ризик</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Точність ChatGPT у педіатрії: що показують дані</h2>
+
+  <blockquote>
+    ChatGPT демонструє загальну точність 82.2% у педіатричних рекомендаціях, з кращими результатами для поширених захворювань і загальних порад. Проте схильний до помилок у визначеннях захворювань, дозуванні ліків і хірургічному лікуванні.
+    <div class="source">Wei et al. — Evaluation of ChatGPT's performance in pediatric disease treatment. PMC, 2023. DOI: 10.1002/pdi3.42</div>
+  </blockquote>
+
+  <p>Дослідження medrxiv 2025 порівняло ChatGPT-4o, Gemini 1.5 Pro і Claude 3.5 Sonnet у педіатричних vs дорослих медичних питаннях. ChatGPT-4o показав майже однакову точність (83.57% vs 83.18%) — що свідчить про збалансовану роботу між обома доменами.</p>
+
+  <div class="accuracy-note">
+    <div class="accuracy-title">Важливий нюанс для фармацевтичних брендів</div>
+    <div class="accuracy-text">ChatGPT і Gemini є ефективними інструментами для батьків щоб зрозуміти стан дитини при висипі, вітрянці, ГРВІ — підтверджено дослідженням Cureus 2025. Це означає що педіатричні бренди мають реальний шанс бути правильно представленими в AI якщо їхній контент структурований і доступний для індексації AI-системами.</div>
+  </div>
+
+  <h2>Педіатрична категорія: стратегічна можливість для брендів</h2>
+  <p>Батьки — найемоційніша і найактивніша аудиторія у фармацевтичному AI-пошуку. Вони шукають швидко, довіряють відповіді і діють негайно. При цьому вони оцінюють ChatGPT як більш надійне джерело ніж традиційні матеріали.</p>
+  <p>Для брендів типу Nurofen дитячий, Panadol дитячий або Пектолван це означає що присутність у відповідях ChatGPT на педіатричні запити є прямим впливом на рішення про покупку. Share of Voice у педіатричній категорії — один з найважливіших показників AI Brand Visibility для дитячих препаратів.</p>
+
+  <div class="cta-inline">
+    <div>
+      <div class="cta-title">Дізнайтесь що ChatGPT рекомендує батькам про ваш бренд</div>
+      <div class="cta-sub">Безкоштовний AI-аудит · PDF за 48 годин · Перший аудит безкоштовно</div>
+    </div>
+    <a href="/#cta" class="cta-btn">Замовити аудит →</a>
+  </div>
+
+  <div class="sources-block">
+    <div class="sources-title">Джерела</div>
+    <ul class="sources-list">
+      <li>Journal of Pediatric Psychology 2024: Parents Trust ChatGPT Over Human Experts for Child Health Care Information — gastroenterologyadvisor.com, жовтень 2024</li>
+      <li>PMC / Journal of Paediatrics and Child Health: Can ChatGPT provide quality information about fever in children? PMC11701195, 2025</li>
+      <li>Wei et al: Evaluation of ChatGPT's performance in providing treatment recommendations for pediatric diseases. PMC12118210. DOI: 10.1002/pdi3.42</li>
+      <li>medrxiv: Are LLMs Ready for Pediatrics? A Comparative Evaluation of Model Accuracy Across Clinical Domains, квітень 2025</li>
+      <li>Reshi, Arora, Singh: ChatGPT and Gemini for Patient Education — Comparative Analysis of Common Pediatric Exanthematous Conditions. Cureus, квітень 2025. DOI: 10.7759/cureus.82705</li>
+      <li>CHOC Children's Health Hub: Should I use ChatGPT for my child's health? Липень 2025</li>
+      <li>PureWow: What a Pediatrician Wants You to Know About ChatGPT and AI, червень 2025</li>
+    </ul>
+  </div>
+</div>
+<footer>
+  <span class="footer-copy">© 2026 Skopix.ai · AI Brand Visibility для фармацевтичних компаній України</span>
+  <div class="footer-links"><a href="/reports.html">AI Reports</a><a href="/terms.html">Умови</a><a href="/privacy.html">Приватність</a></div>
+</footer>
+</body>
+</html>
