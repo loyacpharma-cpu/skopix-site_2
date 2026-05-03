@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skopix.ai — AI Brand Visibility для фармацевтичних компаній</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Oswald:wght@700&display=swap" rel="stylesheet">
 <style>
 :root {
   --dark: #0f172a;
@@ -766,8 +767,151 @@ footer {
   .nav-links { display: none; }
 }
 </style>
-</head>
+<style>
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1.25rem;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { color: white; }
+.modal-title { font-size: 20px; font-weight: 500; color: white; margin-bottom: .4rem; }
+.modal-sub { font-size: 13px; color: #64748b; margin-bottom: 1.5rem; font-weight: 300; }
+.modal-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: .875rem; }
+.modal-field label { font-size: 12px; color: #94a3b8; font-weight: 500; letter-spacing: .03em; }
+.modal-field input, .modal-field textarea {
+  background: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: white;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+}
+.modal-field input:focus, .modal-field textarea:focus { border-color: #e85d20; }
+.modal-field textarea { resize: none; height: 72px; }
+.modal-submit {
+  width: 100%;
+  background: #e85d20;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  margin-top: .5rem;
+  transition: background .2s;
+}
+.modal-submit:hover { background: #d4521c; }
+.modal-success { display: none; text-align: center; padding: 1rem 0; }
+.modal-success svg { color: #4ade80; margin-bottom: 1rem; }
+</style>
 <body>
+
+<!-- MODAL FORM -->
+<div class="modal-overlay" id="auditModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalForm">
+      <div class="modal-title">Замовити безкоштовний AI-аудит</div>
+      <div class="modal-sub">Заповніть форму — відповімо протягом 24 годин</div>
+      <div class="modal-field">
+        <label>Ваше ім'я *</label>
+        <input type="text" id="f-name" placeholder="Імʼя та прізвище">
+      </div>
+      <div class="modal-field">
+        <label>Email *</label>
+        <input type="email" id="f-email" placeholder="your@company.com">
+      </div>
+      <div class="modal-field">
+        <label>Телефон</label>
+        <input type="tel" id="f-phone" placeholder="+380 00 000 00 00">
+      </div>
+      <div class="modal-field">
+        <label>Назва компанії *</label>
+        <input type="text" id="f-company" placeholder="Назва компанії або агенції">
+      </div>
+      <div class="modal-field">
+        <label>Бренди для аудиту *</label>
+        <textarea id="f-brands" placeholder="Наприклад: Nurofen, Panadol, Пектолван..."></textarea>
+      </div>
+      <button class="modal-submit" onclick="submitForm()">Надіслати запит →</button>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <div style="font-size:18px;font-weight:500;color:white;margin-bottom:.5rem;">Запит надіслано!</div>
+      <div style="font-size:13px;color:#64748b;">Ми звʼяжемось з вами протягом 24 годин на вказаний email.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById('auditModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('auditModal').classList.remove('active');
+  document.body.style.overflow = '';
+  document.getElementById('modalForm').style.display = 'block';
+  document.getElementById('modalSuccess').style.display = 'none';
+}
+document.getElementById('auditModal').addEventListener('click', function(e) {
+  if(e.target === this) closeModal();
+});
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const company = document.getElementById('f-company').value.trim();
+  const brands = document.getElementById('f-brands').value.trim();
+  if(!name || !email || !company || !brands) {
+    alert('Будь ласка заповніть всі обовʼязкові поля');
+    return;
+  }
+  const subject = encodeURIComponent('Запит на безкоштовний AI-аудит · ' + company);
+  const body = encodeURIComponent(
+    'Імʼя: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Телефон: ' + (document.getElementById('f-phone').value || 'не вказано') + '\n' +
+    'Компанія: ' + company + '\n' +
+    'Бренди: ' + brands
+  );
+  window.location.href = 'mailto:loyac.pharma@gmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById('modalForm').style.display = 'none';
+  document.getElementById('modalSuccess').style.display = 'block';
+}
+</script>
 
 <!-- NAV -->
 <nav>
@@ -837,7 +981,7 @@ footer {
         <span class="hero-tag">Copilot</span>
       </div>
       <div class="hero-actions">
-        <a href="mailto:loyac.pharma@gmail.com?subject=Замовлення безкоштовного AI-аудиту бренду&body=Доброго дня!%0A%0AЯ хочу замовити безкоштовний AI Brand Audit.%0A%0AНазва бренду:%0AКомпанія:%0AІм'я:%0AТелефон:%0A%0AДякую!" class="btn-primary">Замовити безкоштовний аудит →</a>
+        <a href="#" onclick="openModal();return false;" class="btn-primary">Замовити безкоштовний аудит →</a>
         <a href="#how" class="btn-ghost">Як це працює</a>
       </div>
 
@@ -1163,7 +1307,7 @@ footer {
 <section class="problem" id="problem">
   <div class="section-inner">
     <span class="section-label">Проблема</span>
-    <h2 class="section-h2">AI рекомендує препарати.<br>Ваші чи конкурентів?</h2>
+    <h2 class="section-h2">ШІ рекомендує препарати.<br>Ваші чи конкурентів?</h2>
     <p class="section-sub">Щодня мільйони людей звертаються до ChatGPT з запитами про здоров'я. AI вже рекомендує препарати — і робить це без вашої участі. Які саме бренди він називає? І чи увійде ваш до цього переліку?</p>
 
     <div class="problem-grid">
@@ -1388,7 +1532,7 @@ footer {
 <section style="background:#f8fafc;padding:100px 5%;" id="stats">
   <div class="section-inner">
     <span class="section-label">Масштаб ринку</span>
-    <h2 class="section-h2">Україна. AI. Фарма.<br>Цифри, які змінюють все.</h2>
+    <h2 class="section-h2">Україна. ШІ. Фарма.<br>Цифри, які змінюють все.</h2>
     <p class="section-sub">Пацієнти вже запитують ChatGPT про препарати. Ринок росте щороку. Питання лише одне — чи знає ваш бренд що про нього кажуть.</p>
 
     <!-- Top big stats -->
@@ -1742,7 +1886,7 @@ footer {
           <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>3 рекомендації</span>
           <span style="display:flex;align-items:center;gap:5px;font-size:12px;color:#64748b;white-space:nowrap;"><div class="check"></div>PDF за 48 годин</span>
         </div>
-        <button style="background:#e85d20;border:none;color:white;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;padding:10px 22px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Замовити аудит →</button>
+        <button style="background:#e85d20;border:none;color:white;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;padding:10px 22px;border-radius:8px;cursor:pointer;white-space:nowrap;flex-shrink:0;" onclick="openModal()">Замовити аудит →</button>
       </div>
     </div>
 
@@ -1839,7 +1983,7 @@ footer {
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:.5rem;flex-shrink:0;">
           <div style="font-size:11px;color:var(--gray-mid);font-weight:300;">Готово за 48 годин</div>
-          <a href="#cta" class="btn-primary" style="font-size:13px;padding:11px 24px;white-space:nowrap;">Замовити аудит →</a>
+          <a href="#" onclick="openModal();return false;" class="btn-primary" style="font-size:13px;padding:11px 24px;white-space:nowrap;">Замовити аудит →</a>
           <div style="font-size:11px;color:var(--gray-mid);font-weight:300;">Без зобов'язань · Без оплати</div>
         </div>
       </div>
@@ -2008,10 +2152,10 @@ footer {
 <!-- CTA -->
 <section class="cta-section" id="cta">
   <div class="cta-inner">
-    <h2 class="cta-h">Дізнайтесь що AI каже про <em>вас</em> сьогодні.</h2>
+    <h2 class="cta-h">Дізнайтесь що ШІ каже про <em>вас</em> сьогодні.</h2>
     <p class="cta-sub">Ми проведемо безкоштовний аудит вашого бренду в ChatGPT, Gemini і Perplexity. Покажемо реальні відповіді, Share of Voice і де є проблеми. Без зобов'язань.</p>
     <div class="cta-actions">
-      <a href="mailto:loyac.pharma@gmail.com" class="btn-primary" style="font-size:16px;padding:16px 40px">Замовити безкоштовний аудит →</a>
+      <a href="#" onclick="openModal();return false;" class="btn-primary" style="font-size:16px;padding:16px 40px">Замовити безкоштовний аудит →</a>
       <a href="tel:+380984405244" class="btn-ghost" style="font-size:16px;padding:15px 32px">Зателефонувати</a>
     </div>
     <p class="cta-note">Відповідаємо протягом 24 годин · Перший аудит безкоштовно</p>
