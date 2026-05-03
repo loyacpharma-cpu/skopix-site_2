@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "monthly-reports"
+    label: "Monthly Reports"
+    folder: "reports/monthly"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Категорія", name: "category", widget: "select", options: ["Знеболення", "Педіатрія", "Алергія", "Кардіологія", "Вагітність", "Інше"] }
+      - { label: "Дата публікації", name: "date", widget: "datetime" }
+      - { label: "Короткий опис", name: "description", widget: "string" }
+      - { label: "Контент звіту", name: "body", widget: "markdown" }
+      - { label: "Опублікований", name: "published", widget: "boolean", default: true }
+
+  - name: "weekly-pulse"
+    label: "Weekly AI Pulse"
+    folder: "reports/pulse"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Короткий опис", name: "description", widget: "string" }
+      - { label: "Контент", name: "body", widget: "markdown" }
+      - { label: "Опублікований", name: "published", widget: "boolean", default: true }
