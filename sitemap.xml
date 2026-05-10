@@ -95,5 +95,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+   <!-- Article 4: Cardio / Hypertension -->
+  <url>
+    <loc>https://skopix.ai/pulse-cardio-hypertension-ai-ukraine.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>
