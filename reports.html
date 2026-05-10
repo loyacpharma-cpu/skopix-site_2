@@ -62,6 +62,9 @@ nav{background:#0a0f1e;padding:0 5%;height:64px;display:flex;align-items:center;
 .ch-pain{background:#180a02;}
 .ch-ped{background:#02081a;}
 .ch-allergy{background:#02180a;}
+.ch-self{background:#160218;}
+.ch-cardio{background:#180202;}
+.ch-weight{background:#021816;}
 .ch-soon{background:#f8fafc;border-bottom:0.5px solid #e2e8f0;}
 
 .card-eyebrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
@@ -69,7 +72,11 @@ nav{background:#0a0f1e;padding:0 5%;height:64px;display:flex;align-items:center;
 .cat-pain{color:#fb923c;}
 .cat-ped{color:#60a5fa;}
 .cat-allergy{color:#4ade80;}
+.cat-self{color:#a78bfa;}
+.cat-cardio{color:#f87171;}
+.cat-weight{color:#5eead4;}
 .cat-soon{color:#94a3b8;}
+.card.hidden,.pulse-item.hidden{display:none;}
 .card-prompts{font-size:10px;color:#334155;}
 .card-sov{font-size:52px;font-weight:500;color:#e85d20;line-height:1;margin-bottom:3px;letter-spacing:-2px;}
 .card-brand{font-size:12px;color:#475569;}
@@ -83,6 +90,7 @@ nav{background:#0a0f1e;padding:0 5%;height:64px;display:flex;align-items:center;
 .card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:.875rem;border-top:0.5px solid #f1f5f9;}
 .card-date{font-size:11px;color:#94a3b8;}
 .card-cta{font-size:12px;color:#e85d20;font-weight:500;text-decoration:none;display:flex;align-items:center;gap:3px;}
+.card-cta-soon{font-size:12px;color:#94a3b8;font-weight:500;display:flex;align-items:center;gap:5px;cursor:default;}
 
 .soon-body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem 1.5rem;text-align:center;}
 .soon-ring{width:44px;height:44px;border-radius:50%;border:1px dashed #e2e8f0;display:flex;align-items:center;justify-content:center;margin-bottom:.875rem;}
@@ -150,20 +158,21 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
     <div class="hero-title">Що ChatGPT говорить про<br><span>фармацевтичні бренди</span></div>
     <div class="hero-sub">Щомісячна аналітика Share of Voice по категоріях. Щотижневий AI Pulse. Реальні дані з перевірених промптів.</div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">3</div><div class="hstat-l">Monthly Reports опубліковано</div></div>
-      <div class="hstat"><div class="hstat-n">460+</div><div class="hstat-l">промптів перевірено</div></div>
+      <div class="hstat"><div class="hstat-n">6</div><div class="hstat-l">Monthly Reports опубліковано</div></div>
+      <div class="hstat"><div class="hstat-n">520+</div><div class="hstat-l">промптів перевірено</div></div>
       <div class="hstat"><div class="hstat-n">5</div><div class="hstat-l">AI-платформ моніторується</div></div>
     </div>
   </div>
 </div>
 
 <div class="filters-bar">
-  <div class="filter on">Всі</div>
-  <div class="filter">Знеболення</div>
-  <div class="filter">Педіатрія</div>
-  <div class="filter">Алергія</div>
-  <div class="filter">Кардіологія</div>
-  <div class="filter">Вагітність</div>
+  <div class="filter on" data-filter="all">Всі</div>
+  <div class="filter" data-filter="pain">Знеболення</div>
+  <div class="filter" data-filter="ped">Педіатрія</div>
+  <div class="filter" data-filter="allergy">Алергія</div>
+  <div class="filter" data-filter="cardio">Кардіологія</div>
+  <div class="filter" data-filter="self">Самолікування</div>
+  <div class="filter" data-filter="weight">Схуднення</div>
 </div>
 
 <div class="content">
@@ -176,7 +185,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
 
   <div class="grid">
 
-    <div class="card" style="border-top:2px solid #e85d20;">
+    <div class="card" data-category="pain" style="border-top:2px solid #e85d20;">
       <div class="card-head ch-pain">
         <div class="card-eyebrow">
           <span class="card-cat cat-pain">Знеболення</span>
@@ -199,12 +208,12 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         </div>
         <div class="card-foot">
           <span class="card-date">5 травня 2026</span>
-          <a href="#" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="/pulse-painkillers-chatgpt-ukraine.html" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="ped">
       <div class="card-head ch-ped">
         <div class="card-eyebrow">
           <span class="card-cat cat-ped">Педіатрія</span>
@@ -227,12 +236,12 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         </div>
         <div class="card-foot">
           <span class="card-date">12 травня 2026</span>
-          <a href="#" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+          <a href="/pulse-pediatrics-chatgpt.html" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-category="allergy">
       <div class="card-head ch-allergy">
         <div class="card-eyebrow">
           <span class="card-cat cat-allergy">Алергія</span>
@@ -260,6 +269,90 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
       </div>
     </div>
 
+    <div class="card" data-category="cardio">
+      <div class="card-head ch-cardio">
+        <div class="card-eyebrow">
+          <span class="card-cat cat-cardio">Кардіологія</span>
+          <span class="card-prompts">60+ AI-відповідей</span>
+        </div>
+        <div class="card-sov">25%</div>
+        <div class="card-brand">Еналаприл · лідер серед речовин</div>
+        <div class="card-trend">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          новий звіт
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Тиск і кардіологія в AI · регуляторний ризик</div>
+        <div class="card-desc">У 93% запитів AI скеровує до лікаря, але у 80% називає Rx-препарати. Норваск (Pfizer) і Фізіотенс (Mylan) повністю невидимі в AI.</div>
+        <div class="card-pills">
+          <span class="pill">Еналаприл 25%</span>
+          <span class="pill">Амлодипін 22%</span>
+          <span class="pill">Лізиноприл 20%</span>
+        </div>
+        <div class="card-foot">
+          <span class="card-date">10 травня 2026</span>
+          <a href="/pulse-cardio-hypertension-ai-ukraine.html" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="self">
+      <div class="card-head ch-self">
+        <div class="card-eyebrow">
+          <span class="card-cat cat-self">Самолікування</span>
+          <span class="card-prompts">66+ AI-відповідей</span>
+        </div>
+        <div class="card-sov">88%</div>
+        <div class="card-brand">AI скеровує до лікаря</div>
+        <div class="card-trend">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          новий звіт
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Самолікування в AI · обережний підхід</div>
+        <div class="card-desc">У 88% запитів AI скеровує до лікаря, у 61% згадує швидку 103. Однак рекомендує Rx-препарати (Німесил, Кетанов) у запитах самолікування.</div>
+        <div class="card-pills">
+          <span class="pill">Лікар 88%</span>
+          <span class="pill">Швидка 61%</span>
+          <span class="pill">Ризики 39%</span>
+        </div>
+        <div class="card-foot">
+          <span class="card-date">10 травня 2026</span>
+          <a href="/pulse-self-medication-ai-ukraine.html" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-category="weight">
+      <div class="card-head ch-weight">
+        <div class="card-eyebrow">
+          <span class="card-cat cat-weight">Схуднення</span>
+          <span class="card-prompts">60+ AI-відповідей</span>
+        </div>
+        <div class="card-sov">42%</div>
+        <div class="card-brand">GLP-1 у відповідях AI</div>
+        <div class="card-trend">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          новий звіт
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Схуднення і Оземпік в AI · GLP-1 епідемія</div>
+        <div class="card-desc">У 90% запитів AI скеровує до лікаря. У 42% згадує Оземпік, Wegovy, Saxenda. Сібутрамін майже не згадується — AI не транслює застарілі рекомендації.</div>
+        <div class="card-pills">
+          <span class="pill">Кофеїн 42%</span>
+          <span class="pill">Семаглутид 28%</span>
+          <span class="pill">Оземпік 22%</span>
+        </div>
+        <div class="card-foot">
+          <span class="card-date">10 травня 2026</span>
+          <a href="/pulse-weight-loss-ai-ukraine.html" class="card-cta">Читати звіт <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#e85d20" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="sec-header">
@@ -268,7 +361,19 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
   </div>
 
   <div class="pulse">
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="weight">
+      <div class="pulse-left">
+        <div class="pulse-day">10</div>
+        <div class="pulse-month">трав</div>
+        <div class="pulse-min">12 хв</div>
+      </div>
+      <div class="pulse-right">
+        <a href="/pulse-weight-loss-ai-ukraine.html" class="pulse-title" style="text-decoration:none;color:#0f172a;">Як AI відповідає на запити українців про схуднення і Оземпік</a>
+        <div class="pulse-teaser">У 90% запитів AI скеровує до лікаря. У 42% згадує GLP-1 препарати: Оземпік, Wegovy, Saxenda. Найскладніша категорія з трьох: AI знає протоколи але повсюди називає Rx. Сібутрамін майже не згадується — AI не транслює застарілі рекомендації. Аналіз 60 AI-відповідей.</div>
+        <span class="pulse-tag">Дослідження</span>
+      </div>
+    </div>
+    <div class="pulse-item" data-category="cardio">
       <div class="pulse-left">
         <div class="pulse-day">10</div>
         <div class="pulse-month">трав</div>
@@ -280,7 +385,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         <span class="pulse-tag">Дослідження</span>
       </div>
     </div>
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="self">
       <div class="pulse-left">
         <div class="pulse-day">10</div>
         <div class="pulse-month">трав</div>
@@ -292,7 +397,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         <span class="pulse-tag">Дослідження</span>
       </div>
     </div>
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="allergy">
       <div class="pulse-left">
         <div class="pulse-day">4</div>
         <div class="pulse-month">трав</div>
@@ -304,7 +409,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         <span class="pulse-tag">Дослідження</span>
       </div>
     </div>
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="pain">
       <div class="pulse-left">
         <div class="pulse-day">4</div>
         <div class="pulse-month">трав</div>
@@ -316,7 +421,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         <span class="pulse-tag">Дослідження</span>
       </div>
     </div>
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="ped">
       <div class="pulse-left">
         <div class="pulse-day">31</div>
         <div class="pulse-month">трав</div>
@@ -328,7 +433,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         <span class="pulse-tag">Педіатрія</span>
       </div>
     </div>
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="cardio">
       <div class="pulse-left">
         <div class="pulse-day">24</div>
         <div class="pulse-month">трав</div>
@@ -388,7 +493,7 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
         <span class="pulse-tag">Дослідження</span>
       </div>
     </div>
-    <div class="pulse-item">
+    <div class="pulse-item" data-category="weight">
       <div class="pulse-left">
         <div class="pulse-day">19</div>
         <div class="pulse-month">квіт</div>
@@ -420,6 +525,52 @@ footer{background:#0a0f1e;border-top:1px solid #1e293b;padding:1.5rem 5%;display
     <a href="/privacy.html">Приватність</a>
   </div>
 </footer>
+
+<script>
+(function(){
+  const filters = document.querySelectorAll('.filter');
+  const cards = document.querySelectorAll('.card[data-category]');
+  const pulseItems = document.querySelectorAll('.pulse-item[data-category]');
+  const pulseItemsWithoutCategory = document.querySelectorAll('.pulse-item:not([data-category])');
+
+  filters.forEach(function(filter){
+    filter.addEventListener('click', function(){
+      // Toggle active state on filters
+      filters.forEach(function(f){ f.classList.remove('on'); });
+      filter.classList.add('on');
+
+      const selected = filter.getAttribute('data-filter');
+
+      // Filter Monthly Report cards
+      cards.forEach(function(card){
+        if (selected === 'all' || card.getAttribute('data-category') === selected) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Filter Weekly AI Pulse items with category
+      pulseItems.forEach(function(item){
+        if (selected === 'all' || item.getAttribute('data-category') === selected) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      // Pulse items without category — visible only on "all"
+      pulseItemsWithoutCategory.forEach(function(item){
+        if (selected === 'all') {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
