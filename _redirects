@@ -1,0 +1,19 @@
+# Skopix.ai - canonical URL redirects
+# Кожна стаття має один канонічний URL без .html
+# .html-версія робить 301-redirect на чисту версію
+
+/pulse-painkillers-chatgpt-ukraine.html       /pulse-painkillers-chatgpt-ukraine          301!
+/pulse-allergy-chatgpt-ukraine.html           /pulse-allergy-chatgpt-ukraine              301!
+/pulse-self-medication-ai-ukraine.html        /pulse-self-medication-ai-ukraine           301!
+/pulse-cardio-hypertension-ai-ukraine.html    /pulse-cardio-hypertension-ai-ukraine       301!
+/pulse-weight-loss-ai-ukraine.html            /pulse-weight-loss-ai-ukraine               301!
+/pulse-pediatrics-chatgpt.html                /pulse-pediatrics-chatgpt                   301!
+/pulse-chronic-disease.html                   /pulse-chronic-disease                      301!
+/pulse-pharma-europe.html                     /pulse-pharma-europe                        301!
+/pulse-geo-pharma.html                        /pulse-geo-pharma                           301!
+/pulse-ai-first-contact.html                  /pulse-ai-first-contact                     301!
+/pulse-chatgpt-errors.html                    /pulse-chatgpt-errors                       301!
+/pulse-ozempic.html                           /pulse-ozempic                              301!
+
+# Reports page також без .html
+/reports.html                                 /reports                                    301!
