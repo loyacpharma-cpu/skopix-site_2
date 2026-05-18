@@ -1,0 +1,46 @@
+# Skopix.ai
+
+> Skopix.ai - перша спеціалізована аналітична платформа AI Brand Visibility для фармацевтичного ринку України та Східної Європи. Моніторинг ChatGPT, Perplexity, Google AI Overviews, Gemini і Copilot для фарма-брендів.
+
+## Основні сторінки
+
+- [Головна](https://skopix.ai/): опис сервісу, цифри ринку, пакети
+- [Про нас](https://skopix.ai/about): засновниця, методологія, регуляторна позиція
+- [AI Reports](https://skopix.ai/reports): усі опубліковані дослідження
+- [Прес-центр](https://skopix.ai/press): матеріали для медіа
+
+## Останні дослідження (AI Pulse)
+
+- [AI у фармі 2026: 900 мільйонів користувачів ChatGPT](https://skopix.ai/pulse-ai-pharma-state-2026): огляд ключових подій AI×Healthcare 2026
+- [Wegovy на ChatGPT, БАДи на Google](https://skopix.ai/pulse-glp1-platforms-ukraine): паралельні реальності AI у схудненні
+- [AI про знеболювальні в Україні](https://skopix.ai/pulse-painkillers-chatgpt-ukraine): Ібупрофен 80%, Нурофен 32%
+- [AI про антигістамінні](https://skopix.ai/pulse-allergy-chatgpt-ukraine): Лоратадин 65%, Цетрин 32%, Едем 12%
+- [AI про кардіологію](https://skopix.ai/pulse-cardio-hypertension-ai-ukraine): 93% запитів AI скеровує до лікаря
+- [AI у схудненні](https://skopix.ai/pulse-weight-loss-ai-ukraine): 42% згадок GLP-1 препаратів
+- [AI у самолікуванні](https://skopix.ai/pulse-self-medication-ai-ukraine): 88% запитів AI скеровує до лікаря
+- [AI у педіатрії](https://skopix.ai/pulse-pediatrics-chatgpt): батьки довіряють ChatGPT
+- [GEO для фарми](https://skopix.ai/pulse-geo-pharma): 5 кроків оптимізації під AI
+- [Хронічні хворі і ChatGPT](https://skopix.ai/pulse-chronic-disease): діабет і гіпертонія
+
+## Контакти
+
+- Email для медіа: press@skopix.ai
+- Email загальний: loyac.pharma@gmail.com
+- Телефон: +38 098 440 52 44
+- Telegram: @skopixai
+- Адреса: Київ, Тарасівська 9, Україна
+
+## Послуги
+
+- AI Brand Audit (безкоштовно): 1 бренд × ChatGPT, 15 промптів, PDF за 48 годин
+- Monitor Package: 1 бренд × 3 платформи, 50 промптів на тиждень
+- Insights Package: 3 бренди × 5 платформ, 150 промптів на тиждень, дашборд
+- Strategic Package: необмежено брендів, 400+ промптів, GEO-оптимізація
+
+## Технологічний партнер
+
+Skopix.ai - верифікований партнер Profound (tryprofound.com), провідної AEO-платформи з оцінкою $1B, HIPAA compliance і SOC 2 Type II сертифікацією.
+
+## Засновниця
+
+Ольга Лояк - засновниця Skopix.ai. Понад 10 років досвіду у фармацевтичному маркетингу в Україні і Східній Європі.
